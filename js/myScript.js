@@ -69,6 +69,7 @@ function carousel() {
   x[myIndex-1].style.display = "block";
   setTimeout(carousel, 2000);
 }
-document.getElementsByID("home")[0].onClick = function () {
-	location.href = "http://google.com.vn";
+function runclick() {
+	console.log('OK');
+	window.location.href = "http://google.com.vn";
 }
