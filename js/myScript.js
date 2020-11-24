@@ -70,6 +70,5 @@ function carousel() {
   setTimeout(carousel, 2000);
 }
 function runclick() {
-	console.log('OK');
-	window.location.href = "http://google.com.vn";
+	window.location.href = "/html/skill.html";
 }
