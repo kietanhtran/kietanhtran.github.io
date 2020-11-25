@@ -152,6 +152,7 @@ h4 {
 }
 .card:hover{
   background-color: cornsilk;
+  cursor: pointer;
 }
 .card1 {
   border-color: hsl(180, 62%, 55%)
