@@ -69,6 +69,11 @@ function carousel() {
   x[myIndex-1].style.display = "block";
   setTimeout(carousel, 2000);
 }
+
 function runclick() {
 	window.location.href = "http://google.com.vn";
+}
+
+function pathSkill() {
+	window.location.href = "/skill.html";
 }
