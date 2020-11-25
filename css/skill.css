@@ -97,101 +97,100 @@ html {
     margin: 2rem auto;
     font-size: 200%;
     color: yellowgreen;
-    opacity: 0;
-    animation: in 3s ease-out forwards infinite;
-    animation-delay: 1s;
-  }
-  
-  @keyframes in{
-    0%{
-      letter-spacing: -17px;
-      opacity: 0;
-    }
-    30%{
-      letter-spacing: 4px;
-      opacity: 1;
-    }
-    100%{
-      letter-spacing: 2px;
-      opacity: 1;
-    }
-  }
-  
-  
-  
-  h3, p {
-    color: hsl(229, 6%, 66%);
-  }
-  
-  .container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  h1, h4 {
-    color: hsl(234, 12%, 34%);
-  }
-  
-  h4 {
-    margin: 0;
-    font-size: 2.3rem;
-    font-weight: 600;
-  }
-  
-  .card {
-    width: 27rem;
+    -webkit-animation: color-change 1s infinite;
+    -moz-animation: color-change 1s infinite;
+    -o-animation: color-change 1s infinite;
+    -ms-animation: color-change 1s infinite;
+    animation: color-change 1s infinite;
+}
+
+@-webkit-keyframes color-change {
+    0% { color: red; }
+    50% { color: blue; }
+    100% { color: yellowgreen; }
+}
+@-moz-keyframes color-change {
+    0% { color: red; }
+    50% { color: blue; }
+    100% { color: yellowgreen; }
+}
+@-ms-keyframes color-change {
+    0% { color: red; }
+    50% { color: blue; }
+    100% { color: yellowgreen; }
+}
+@-o-keyframes color-change {
+    0% { color: red; }
+    50% { color: blue; }
+    100% { color: yellowgreen; }
+}
+@keyframes color-change {
+    0% { color: red; }
+    50% { color: blue; }
+    100% { color: yellowgreen; }
+}
+
+.card {
+    width: 100rem;
+    height: 30rem;
     background-color: snow;
     margin: 2rem;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
     border-top: 6px solid;
     border-radius: 8px;
     padding: 2rem;
+    border-color: hsl(180, 62%, 55%);
+    margin: auto;
   }
-  .card:hover{
-    background-color: cornsilk;
-    cursor: pointer;
-  }
-  .card1 {
-    border-color: hsl(180, 62%, 55%)
-  }
-  
-  .card2 {
-    border-color: hsl(0, 78%, 62%);
-  }
-  
-  .card3 {
-    border-color: hsl(34, 97%, 64%);
-  }
-  
-  .card4 {
-    border-color: hsl(212, 86%, 64%);
+#demo{
+    padding-top: 15px;
+    padding-left: 8px;
+    color: tomato;
+    font-size: 5rem;
+}
+
+body {
+    font-family: sans-serif;
+    width: 100%;
+    margin: 0px;
   }
   
-  /* Image inside card */
   
-  img {
-    padding-top: 1rem;
-    margin-left: auto;
-    margin-right: auto;
+  /* upper strip holding the tabs*/
+ .menu{
+     position: relative;
+ } 
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: auto;
+    background-color: snow
+  }
+  
+  li {
+    float: left;
+    border-right: 3px solid black;
+    border: 2px solid black ;
+  }
+  
+  li a {
     display: block;
+    font-size: 3rem;
+    text-decoration: none;
+    padding: 14px 16px;
+    text-align: center;
   }
-  @media only screen and (min-width: 68em) {
-    .card1 { 
-        transform: translateY(50%);
-        order: 1;
-    }
-    .card2 { 
-        order: 2;
-    }
-    .card3 { 
-        order: 4;
-    }
-    .card4 { 
-        transform: translateY(50%);
-        order: 3;
-    }
+  
+  li a:hover:not(.active) {
+    background-color: darkcyan;
   }
+  
+  li a:focus {
+    background-color: red
+  }
+  
+  
+  
   

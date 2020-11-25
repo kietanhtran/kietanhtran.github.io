@@ -77,3 +77,17 @@ function runclick() {
 function pathSkill() {
 	window.location.href = "/skill.html";
 }
+function clickCPlus() {
+	document.getElementById("demo").innerHTML = "Hello C/C++!";
+}
+
+function clickCSharp() {
+	document.getElementById("demo").innerHTML = "Hello C#!";
+}
+
+function clickPython() {
+	document.getElementById("demo").innerHTML = "Hello Python!";
+}
+function clickSh() {
+	document.getElementById("demo").innerHTML = "Hello Shell Script!";
+}
