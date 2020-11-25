@@ -185,6 +185,7 @@ body {
   
   li a:hover:not(.active) {
     background-color: darkcyan;
+    cursor: pointer;
   }
   
   li a:focus {
