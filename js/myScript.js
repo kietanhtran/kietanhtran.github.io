@@ -78,16 +78,20 @@ function pathSkill() {
 	window.location.href = "/skill.html";
 }
 function clickCPlus() {
-	document.getElementById("demo").innerHTML = "Hello C/C++!";
+	var x = document.getElementById("cplus").innerHTML;
+	document.getElementById("demo").innerHTML = x;
 }
 
 function clickCSharp() {
-	document.getElementById("demo").innerHTML = "Hello C#!";
+	var x = document.getElementById("csharp").innerHTML;
+	document.getElementById("demo").innerHTML = x;
 }
 
 function clickPython() {
-	document.getElementById("demo").innerHTML = "Hello Python!";
+	var x = document.getElementById("python").innerHTML;
+	document.getElementById("demo").innerHTML = x;
 }
 function clickSh() {
-	document.getElementById("demo").innerHTML = "Hello Shell Script!";
+	var x = document.getElementById("shell").innerHTML;
+	document.getElementById("demo").innerHTML = x;
 }
