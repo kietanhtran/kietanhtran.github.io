@@ -91,7 +91,7 @@ function clickPython() {
 	var x = document.getElementById("python").innerHTML;
 	document.getElementById("demo").innerHTML = x;
 }
-function clickSh() {
-	var x = document.getElementById("shell").innerHTML;
+function clickBash() {
+	var x = document.getElementById("bash").innerHTML;
 	document.getElementById("demo").innerHTML = x;
 }
