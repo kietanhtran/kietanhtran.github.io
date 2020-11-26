@@ -7,8 +7,9 @@ html {
     font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;
     padding: 0;
+    
     line-height: 3rem;
-    margin:2rem!important;
+    margin:2rem !important;
     /* color: hsl(234, 12%, 34%); */
     /* color: hsl(229, 6%, 66%); */
     background-color: mintcream; 
@@ -49,7 +50,6 @@ html {
   /* Title my resume */
   .waviy {
     font-family: Georgia, serif;
-    padding-right: 150px;
     padding-top: 10px;
     text-align: center;
     -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
