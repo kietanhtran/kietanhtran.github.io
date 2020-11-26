@@ -50,6 +50,7 @@ html {
   /* Title my resume */
   .waviy {
     font-family: Georgia, serif;
+    padding-right: 150px;
     padding-top: 10px;
     text-align: center;
     -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
@@ -147,13 +148,6 @@ html {
     color: darkred;
     font-size: 2rem;
 }
-
-body {
-    font-family: sans-serif;
-    width: 100%;
-    margin: 0px;
-  }
-  
   
   /* upper strip holding the tabs*/
  .menu{
