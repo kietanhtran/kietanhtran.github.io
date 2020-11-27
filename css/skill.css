@@ -186,13 +186,13 @@ html {
       visibility: hidden;
   }
 
-  img {
+  .photo {
     padding-top: 2rem;
     display: block;
     margin: auto;
     width: 20%;
     height: 20%;
   }
-  img:hover{
+  .photo:hover{
     transform: scale(1.2);
   }
