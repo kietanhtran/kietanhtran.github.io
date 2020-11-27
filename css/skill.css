@@ -193,6 +193,6 @@ html {
     width: 20%;
     height: 20%;
   }
-  
-  
-  
+  img:hover{
+    transform: scale(1.2);
+  }

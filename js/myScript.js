@@ -95,3 +95,11 @@ function clickBash() {
 	var x = document.getElementById("bash").innerHTML;
 	document.getElementById("demo").innerHTML = x;
 }
+function clickTest() {
+	var x = document.getElementById("testing").innerHTML;
+	document.getElementById("demo").innerHTML = x;
+}
+function clickSoft() {
+	var x = document.getElementById("soft").innerHTML;
+	document.getElementById("demo").innerHTML = x;
+}
