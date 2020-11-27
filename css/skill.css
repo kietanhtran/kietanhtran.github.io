@@ -131,8 +131,8 @@ html {
 }
 
 .card {
-    width: 90rem;
-    height: 30rem;
+    width: 110rem;
+    height: 32rem;
     background-color: snow;
     margin: 2rem;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
@@ -184,6 +184,14 @@ html {
   
   .replace{
       visibility: hidden;
+  }
+
+  img {
+    padding-top: 2rem;
+    display: block;
+    margin: auto;
+    width: 20%;
+    height: 20%;
   }
   
   
