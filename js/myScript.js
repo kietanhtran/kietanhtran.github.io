@@ -77,6 +77,10 @@ function runclick() {
 function pathSkill() {
 	window.location.href = "/skill.html";
 }
+
+function pathEdu() {
+	window.location.href = "/education.html";
+}
 function clickCPlus() {
 	var x = document.getElementById("cplus").innerHTML;
 	document.getElementById("demo").innerHTML = x;
