@@ -142,12 +142,7 @@ html {
     border-color: hsl(180, 62%, 55%);
     margin: auto;
   }
-#demo{
-    padding-top: 15px;
-    padding-left: 8px;
-    color: darkred;
-    font-size: 2rem;
-}
+
 .school{
   display: flex;
  
