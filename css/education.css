@@ -132,7 +132,7 @@ html {
 
 .card {
     width: 110rem;
-    height: 30rem;
+    height: 31rem;
     background-color: snow;
     margin: 2rem;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
@@ -158,7 +158,7 @@ html {
   
 }
 .nameSchool{
-  color: green;
+  color: tomato;
 
   padding-left: 10px;
 }
