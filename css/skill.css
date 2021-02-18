@@ -190,12 +190,11 @@ html {
       background-color: yellow;
     }
 
-    button:hover  {
+  button:hover {
       background-color: darkcyan;
       cursor: pointer;
     }
 
-  
   .replace{
       visibility: hidden;
 
