@@ -70,8 +70,8 @@ function carousel() {
   setTimeout(carousel, 2000);
 }
 
-function runclick() {
-	window.location.href = "http://google.com.vn";
+function pathExp() {
+	window.location.href = "/experience.html";
 }
 
 function pathSkill() {
@@ -81,6 +81,11 @@ function pathSkill() {
 function pathEdu() {
 	window.location.href = "/education.html";
 }
+
+function pathProject() {
+	window.location.href = "/project.html";
+}
+
 function clickCPlus() {
 	var x = document.getElementById("cplus").innerHTML;
 	document.getElementById("demo").innerHTML = x;
