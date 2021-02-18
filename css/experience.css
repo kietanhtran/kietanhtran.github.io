@@ -106,24 +106,37 @@ body {
   margin: 2rem auto;
   font-size: 200%;
   color: yellowgreen;
-  opacity: 0;
-  animation: in 3s ease-out forwards infinite;
-  animation-delay: 1s;
+  -webkit-animation: color-change 1s infinite;
+  -moz-animation: color-change 1s infinite;
+  -o-animation: color-change 1s infinite;
+  -ms-animation: color-change 1s infinite;
+  animation: color-change 1s infinite;
 }
 
-@keyframes in{
-  0%{
-    letter-spacing: -17px;
-    opacity: 0;
-  }
-  30%{
-    letter-spacing: 4px;
-    opacity: 1;
-  }
-  100%{
-    letter-spacing: 2px;
-    opacity: 1;
-  }
+@-webkit-keyframes color-change {
+  0% { color: red; }
+  50% { color: blue; }
+  100% { color: yellowgreen; }
+}
+@-moz-keyframes color-change {
+  0% { color: red; }
+  50% { color: blue; }
+  100% { color: yellowgreen; }
+}
+@-ms-keyframes color-change {
+  0% { color: red; }
+  50% { color: blue; }
+  100% { color: yellowgreen; }
+}
+@-o-keyframes color-change {
+  0% { color: red; }
+  50% { color: blue; }
+  100% { color: yellowgreen; }
+}
+@keyframes color-change {
+  0% { color: red; }
+  50% { color: blue; }
+  100% { color: yellowgreen; }
 }
 
 .card {
