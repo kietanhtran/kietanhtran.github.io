@@ -141,7 +141,7 @@ body {
 
 .card {
   width: 110rem;
-  height: 32rem;
+  height: 27rem;
   background-color: snow;
   margin: 2rem;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
@@ -172,4 +172,8 @@ body {
 .year{
   margin-top: -12px;
   color: gray;
+}
+
+.primary{
+  color: DodgerBlue;
 }
