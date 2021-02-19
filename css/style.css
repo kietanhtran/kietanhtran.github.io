@@ -203,3 +203,23 @@ img {
       order: 3;
   }
 }
+
+.footer{
+  text-align: center;
+}
+/* Style all font awesome icons */
+.fa {
+  padding: 5px;
+  width: 15px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  background: black;
+  color: white;
+  zoom: 1.55;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
