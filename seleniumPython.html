@@ -112,10 +112,84 @@
             </div>
             <p>
                 Likewise, the IDs of the numbers in my password would be "SMX_BTN_0", "SMX_BTN_4", "SMX_BTN_8", "SMX_BTN_12", "SMX_BTN_13", "SMX_BTN_14", "SMX_BTN_15", "SMX_BTN_28". <br>
-                <b>Source code:</b>
+            </p>
+            <h1> Steps to do:<br></h1>
+            <p>    
+                ● We need install Selenium library first.
+            </p>
 
-                <div class="code">
-                    <pre><code class="python">#Library
+            <div class="code">
+                <pre><code class="python language-python">from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from time import sleep</code></pre>
+            </div><br>
+            <p>
+                ● Then, we will modify the code to apply for our account. We will edit user name, the path of IE driver and the link of website.
+            </p>
+
+            <div class="code">
+                <pre><code class="python language-python">#User name
+userName='a512xxxx'
+
+#Path of IE Driver
+driver = webdriver.Ie("D:\Downloads\IEDriverServer.exe")
+
+#Link login
+driver.get("https://b2b-gateway.(hidden_name).com/login/ssl")
+driver.implicitly_wait(15) </code></pre>
+            </div><br>
+            <p>
+                ● We will find the elements of website. As the following images, the box is used to fill the user name would be <b>"LOGIN_ID".</b> 
+                Then we will send the user name to it and find the button (class name is <b>"btnCustom"</b>) and click it.
+            </p>
+            <div class="img">
+                <img src="/images/b2b_pic6.png" width="800" height="400" style="border: 1.1px solid black;" class="imgPost"> <br>
+                <img src="/images/b2b_pic7.png" width="800" height="400" style="border: 1.1px solid black;" class="imgPost"> <br>
+
+            </div>
+            <div class="code">
+                <pre><code class="python language-python">#Find element and send data
+driver.find_element(By.NAME,'LOGIN_ID').send_keys(userName)
+driver.find_element(By.CLASS_NAME,'btnCustom').click()</code></pre>
+            </div><br>
+
+            <p>
+                ● Next, I will use the ID password I have found in above steps and put it in a for loop. Same as above, we will find the box to fill password and click the button.
+            </p>
+
+            <div class="code">
+                <pre><code class="python language-python">#Initialize password and fill password
+password=""
+arr = ["SMX_BTN_0", "SMX_BTN_4", "SMX_BTN_8", "SMX_BTN_12", "SMX_BTN_13", "SMX_BTN_14", "SMX_BTN_15", "SMX_BTN_28"]
+for i in arr:
+    passTemp = driver.find_element(By.ID,i).get_attribute("alt")
+    password += passTemp
+
+driver.find_element_by_name("PASSWORD").send_keys(password)
+button = driver.find_element_by_class_name("btnCustom").click()
+print("Waiting...")</code></pre>
+            </div><br>
+
+            <p>
+                ● Finally, I use <b>try-except</b> to check if there are any errors and inform to user via console output.
+            </p>
+
+            <div class="code">
+                <pre><code class="python language-python">#Check if there are any errors
+try:
+    element = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.ID, "table_welcome_2")))    
+except:
+    print("Could not connect to B2b. Please try again")
+finally:
+    print("Welcome to the Secure Access SSL VPN, " + driver.find_element_by_class_name("cssSmall").text)
+    print("Quit IE.")
+    driver.quit()</code></pre>
+            </div><br>
+            <h1> Here is full source code.<br></h1>
+            <div class="code">
+                <pre><code class="python language-python">#Library
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -124,6 +198,7 @@ from time import sleep
 
 #User name
 userName='a512xxxx'
+
 #Path of IE Driver
 driver = webdriver.Ie("D:\Downloads\IEDriverServer.exe")
 
@@ -139,7 +214,7 @@ driver.find_element(By.CLASS_NAME,'btnCustom').click()
 password=""
 arr = ["SMX_BTN_0", "SMX_BTN_4", "SMX_BTN_8", "SMX_BTN_12", "SMX_BTN_13", "SMX_BTN_14", "SMX_BTN_15", "SMX_BTN_28"]
 for i in arr:
-    passTemp = driver.find_element(By.ID,i).get_attribute("alt")
+    assTemp = driver.find_element(By.ID,i).get_attribute("alt")
     password += passTemp
 
 driver.find_element_by_name("PASSWORD").send_keys(password)
@@ -155,10 +230,10 @@ finally:
     print("Welcome to the Secure Access SSL VPN, " + driver.find_element_by_class_name("cssSmall").text)
     print("Quit IE.")
     driver.quit()</code></pre>
-                </div>
-            </p>
-        </div>
-        
+
+
+        </div><br>
+        <h1> That's it. Thank you for reading!</h1>
     </section>
 
 </body>
