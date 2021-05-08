@@ -66,7 +66,7 @@
       </div>
       
         <h3 class="header__details">
-            Auto login account web using Selenium and Python.
+            Auto login account to web using Selenium and Python.
         </h3>
     </header>
     <script src="/js/myScript.js"></script> 
@@ -130,7 +130,7 @@ from time import sleep</code></pre>
             </p>
 
             <div class="code">
-                <pre><code class="python language-python">#User name
+                <pre class="souceCode"><code class="python language-python">#User name
 userName='a512xxxx'
 
 #Path of IE Driver
@@ -150,7 +150,7 @@ driver.implicitly_wait(15) </code></pre>
 
             </div>
             <div class="code">
-                <pre><code class="python language-python">#Find element and send data
+                <pre class="souceCode"><code class="python language-python">#Find element and send data
 driver.find_element(By.NAME,'LOGIN_ID').send_keys(userName)
 driver.find_element(By.CLASS_NAME,'btnCustom').click()</code></pre>
             </div><br>
@@ -160,7 +160,7 @@ driver.find_element(By.CLASS_NAME,'btnCustom').click()</code></pre>
             </p>
 
             <div class="code">
-                <pre><code class="python language-python">#Initialize password and fill password
+                <pre class="souceCode"><code class="python language-python">#Initialize password and fill password
 password=""
 arr = ["SMX_BTN_0", "SMX_BTN_4", "SMX_BTN_8", "SMX_BTN_12", "SMX_BTN_13", "SMX_BTN_14", "SMX_BTN_15", "SMX_BTN_28"]
 for i in arr:
@@ -177,7 +177,7 @@ print("Waiting...")</code></pre>
             </p>
 
             <div class="code">
-                <pre><code class="python language-python">#Check if there are any errors
+                <pre class="souceCode"><code class="python language-python">#Check if there are any errors
 try:
     element = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.ID, "table_welcome_2")))    
 except:
@@ -187,9 +187,9 @@ finally:
     print("Quit IE.")
     driver.quit()</code></pre>
             </div><br>
-            <h1> Here is full source code.<br></h1>
+            <h1> Here is full of source code.<br></h1>
             <div class="code">
-                <pre><code class="python language-python">#Library
+                <pre class="souceCode"><code class="python language-python">#Library
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait

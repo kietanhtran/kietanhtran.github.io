@@ -141,7 +141,7 @@ body {
 
 .card {
   width: 110rem;
-  height: 125rem;
+  height: 50rem;
   background-color: snow;
   margin: 2rem;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
@@ -150,4 +150,9 @@ body {
   border-color: hsl(180, 62%, 55%);
   padding: 2rem;
   margin: auto;
+}
+
+.mypost{
+  font-size: 30px;
+  padding-left: 35px;
 }
