@@ -141,7 +141,7 @@ body {
 
 .container {
   width: 110rem;
-  height: 560rem;
+  height: 477rem;
   /* background-color: snow; */
   background-color: white;
   margin: 2rem;
@@ -174,11 +174,16 @@ p{
   cursor: zoom-in;
   
 }
-.code {
-  border: solid 1.5px navy;
-  background-color: #f2f6fa;
-}
 
 .souceCode {
   padding-left: 35px;
+}
+
+.LineNumbers{
+  padding-right:10px;
+  border-right: solid 1px black;
+}
+
+.contentCode{
+  padding-left:10px;
 }

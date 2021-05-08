@@ -118,28 +118,43 @@
                 ● We need install Selenium library first.
             </p>
 
-            <div class="code">
-                <pre><code class="python language-python">from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from time import sleep</code></pre>
-            </div><br>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #008000">#Library</span>
+<span style="color: #0000ff">from</span> selenium <span style="color: #0000ff">import</span> webdriver
+<span style="color: #0000ff">from</span> selenium.webdriver.common.by <span style="color: #0000ff">import</span> By
+<span style="color: #0000ff">from</span> selenium.webdriver.support.ui <span style="color: #0000ff">import</span> WebDriverWait
+<span style="color: #0000ff">from</span> selenium.webdriver.support <span style="color: #0000ff">import</span> expected_conditions <span style="color: #0000ff">as</span> EC
+<span style="color: #0000ff">from</span> time <span style="color: #0000ff">import</span> sleep
+</pre></td></tr></table></div><br>
+                
+
             <p>
-                ● Then, we will modify the code to apply for our account. We will edit user name, the path of IE driver and the link of website.
+            ● Then, we will modify the code to apply for our account. We will edit user name, the path of IE driver and the link of website.
             </p>
 
-            <div class="code">
-                <pre class="souceCode"><code class="python language-python">#User name
-userName='a512xxxx'
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #008000">#User name</span>
+userName=<span style="color: #a31515">&#39;a512xxxx&#39;</span>
 
-#Path of IE Driver
-driver = webdriver.Ie("D:\Downloads\IEDriverServer.exe")
+<span style="color: #008000">#Path of IE Driver</span>
+driver = webdriver.Ie(<span style="color: #a31515">&quot;D:\Downloads\IEDriverServer.exe&quot;</span>)
 
-#Link login
-driver.get("https://b2b-gateway.(hidden_name).com/login/ssl")
-driver.implicitly_wait(15) </code></pre>
-            </div><br>
+<span style="color: #008000">#Link login</span>
+driver.get(<span style="color: #a31515">&quot;https://b2b-gateway.(hidden_name).com/login/ssl&quot;</span>)
+driver.implicitly_wait(15) 
+</pre></td></tr></table></div><br>
+
             <p>
                 ● We will find the elements of website. As the following images, the box is used to fill the user name would be <b>"LOGIN_ID".</b> 
                 Then we will send the user name to it and find the button (class name is <b>"btnCustom"</b>) and click it.
@@ -149,90 +164,143 @@ driver.implicitly_wait(15) </code></pre>
                 <img src="/images/b2b_pic7.png" width="800" height="400" style="border: 1.1px solid black;" class="imgPost"> <br>
 
             </div>
-            <div class="code">
-                <pre class="souceCode"><code class="python language-python">#Find element and send data
-driver.find_element(By.NAME,'LOGIN_ID').send_keys(userName)
-driver.find_element(By.CLASS_NAME,'btnCustom').click()</code></pre>
-            </div><br>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #008000">#Find element and send data</span>
+driver.find_element(By.NAME,<span style="color: #a31515">&#39;LOGIN_ID&#39;</span>).send_keys(userName)
+driver.find_element(By.CLASS_NAME,<span style="color: #a31515">&#39;btnCustom&#39;</span>).click()
+</pre></td></tr></table></div><br>
 
             <p>
                 ● Next, I will use the ID password I have found in above steps and put it in a for loop. Same as above, we will find the box to fill password and click the button.
             </p>
 
-            <div class="code">
-                <pre class="souceCode"><code class="python language-python">#Initialize password and fill password
-password=""
-arr = ["SMX_BTN_0", "SMX_BTN_4", "SMX_BTN_8", "SMX_BTN_12", "SMX_BTN_13", "SMX_BTN_14", "SMX_BTN_15", "SMX_BTN_28"]
-for i in arr:
-    passTemp = driver.find_element(By.ID,i).get_attribute("alt")
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%"> 1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td><td><pre class="contentCode"  style="margin: 0; line-height: 125%"><span style="color: #008000">#Initialize password and fill password</span>
+password=<span style="color: #a31515">&quot;&quot;</span>
+arr = [<span style="color: #a31515">&quot;SMX_BTN_0&quot;</span>, <span style="color: #a31515">&quot;SMX_BTN_4&quot;</span>, <span style="color: #a31515">&quot;SMX_BTN_8&quot;</span>, <span style="color: #a31515">&quot;SMX_BTN_12&quot;</span>, <span style="color: #a31515">&quot;SMX_BTN_13&quot;</span>, <span style="color: #a31515">&quot;SMX_BTN_14&quot;</span>, <span style="color: #a31515">&quot;SMX_BTN_15&quot;</span>, <span style="color: #a31515">&quot;SMX_BTN_28&quot;</span>]
+<span style="color: #0000ff">for</span> i <span style="color: #0000ff">in</span> arr:
+    passTemp = driver.find_element(By.ID,i).get_attribute(<span style="color: #a31515">&quot;alt&quot;</span>)
     password += passTemp
 
-driver.find_element_by_name("PASSWORD").send_keys(password)
-button = driver.find_element_by_class_name("btnCustom").click()
-print("Waiting...")</code></pre>
-            </div><br>
+driver.find_element_by_name(<span style="color: #a31515">&quot;PASSWORD&quot;</span>).send_keys(password)
+button = driver.find_element_by_class_name(<span style="color: #a31515">&quot;btnCustom&quot;</span>).click()
+<span style="color: #0000ff">print</span>(<span style="color: #a31515">&quot;Waiting...&quot;</span>)
+</pre></td></tr></table></div><br>
+
 
             <p>
                 ● Finally, I use <b>try-except</b> to check if there are any errors and inform to user via console output.
             </p>
-
-            <div class="code">
-                <pre class="souceCode"><code class="python language-python">#Check if there are any errors
-try:
-    element = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.ID, "table_welcome_2")))    
-except:
-    print("Could not connect to B2b. Please try again")
-finally:
-    print("Welcome to the Secure Access SSL VPN, " + driver.find_element_by_class_name("cssSmall").text)
-    print("Quit IE.")
-    driver.quit()</code></pre>
-            </div><br>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #008000">#Check if there are any errors</span>
+<span style="color: #0000ff">try</span>:
+    element = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.ID, <span style="color: #a31515">&quot;table_welcome_2&quot;</span>)))    
+<span style="color: #0000ff">except</span>:
+    <span style="color: #0000ff">print</span>(<span style="color: #a31515">&quot;Could not connect to B2b. Please try again&quot;</span>)
+<span style="color: #0000ff">finally</span>:
+    <span style="color: #0000ff">print</span>(<span style="color: #a31515">&quot;Welcome to the Secure Access SSL VPN, &quot;</span> + driver.find_element_by_class_name(<span style="color: #a31515">&quot;cssSmall&quot;</span>).text)
+    <span style="color: #0000ff">print</span>(<span style="color: #a31515">&quot;Quit IE.&quot;</span>)
+    driver.quit()
+</pre></td></tr></table></div><br>
             <h1> Here is full of source code.<br></h1>
-            <div class="code">
-                <pre class="souceCode"><code class="python language-python">#Library
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from time import sleep
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #008000">#Library</span>
+<span style="color: #0000ff">from</span> selenium <span style="color: #0000ff">import</span> webdriver
+<span style="color: #0000ff">from</span> selenium.webdriver.common.by <span style="color: #0000ff">import</span> By
+<span style="color: #0000ff">from</span> selenium.webdriver.support.ui <span style="color: #0000ff">import</span> WebDriverWait
+<span style="color: #0000ff">from</span> selenium.webdriver.support <span style="color: #0000ff">import</span> expected_conditions <span style="color: #0000ff">as</span> EC
+<span style="color: #0000ff">from</span> time <span style="color: #0000ff">import</span> sleep
 
-#User name
-userName='a512xxxx'
+<span style="color: #008000">#User name</span>
+userName=<span style="color: #a31515">&#39;a512xxxx&#39;</span>
 
-#Path of IE Driver
-driver = webdriver.Ie("D:\Downloads\IEDriverServer.exe")
+<span style="color: #008000">#Path of IE Driver</span>
+driver = webdriver.Ie(<span style="color: #a31515">&quot;D:\Downloads\IEDriverServer.exe&quot;</span>)
 
-#Link login
-driver.get("https://b2b-gateway.(hidden_name).com/login/ssl")
+<span style="color: #008000">#Link login</span>
+driver.get(<span style="color: #a31515">&quot;https://b2b-gateway.(hidden_name).com/login/ssl&quot;</span>)
 driver.implicitly_wait(15) 
 
-#Find element and send data
-driver.find_element(By.NAME,'LOGIN_ID').send_keys(userName)
-driver.find_element(By.CLASS_NAME,'btnCustom').click()
+<span style="color: #008000">#Find element and send data</span>
+driver.find_element(By.NAME,<span style="color: #a31515">&#39;LOGIN_ID&#39;</span>).send_keys(userName)
+driver.find_element(By.CLASS_NAME,<span style="color: #a31515">&#39;btnCustom&#39;</span>).click()
 
-#Initialize password and fill password
-password=""
-arr = ["SMX_BTN_0", "SMX_BTN_4", "SMX_BTN_8", "SMX_BTN_12", "SMX_BTN_13", "SMX_BTN_14", "SMX_BTN_15", "SMX_BTN_28"]
-for i in arr:
-    assTemp = driver.find_element(By.ID,i).get_attribute("alt")
+<span style="color: #008000">#Initialize password and fill password</span>
+password=<span style="color: #a31515">&quot;&quot;</span>
+arr = [<span style="color: #a31515">&quot;SMX_BTN_0&quot;</span>, <span style="color: #a31515">&quot;SMX_BTN_4&quot;</span>, <span style="color: #a31515">&quot;SMX_BTN_8&quot;</span>, <span style="color: #a31515">&quot;SMX_BTN_12&quot;</span>, <span style="color: #a31515">&quot;SMX_BTN_13&quot;</span>, <span style="color: #a31515">&quot;SMX_BTN_14&quot;</span>, <span style="color: #a31515">&quot;SMX_BTN_15&quot;</span>, <span style="color: #a31515">&quot;SMX_BTN_28&quot;</span>]
+<span style="color: #0000ff">for</span> i <span style="color: #0000ff">in</span> arr:
+    assTemp = driver.find_element(By.ID,i).get_attribute(<span style="color: #a31515">&quot;alt&quot;</span>)
     password += passTemp
 
-driver.find_element_by_name("PASSWORD").send_keys(password)
-button = driver.find_element_by_class_name("btnCustom").click()
-print("Waiting...")
+driver.find_element_by_name(<span style="color: #a31515">&quot;PASSWORD&quot;</span>).send_keys(password)
+button = driver.find_element_by_class_name(<span style="color: #a31515">&quot;btnCustom&quot;</span>).click()
+<span style="color: #0000ff">print</span>(<span style="color: #a31515">&quot;Waiting...&quot;</span>)
 
-#Check if there are any errors
-try:
-    element = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.ID, "table_welcome_2")))    
-except:
-    print("Could not connect to B2b. Please try again")
-finally:
-    print("Welcome to the Secure Access SSL VPN, " + driver.find_element_by_class_name("cssSmall").text)
-    print("Quit IE.")
-    driver.quit()</code></pre>
-
-
-        </div><br>
+<span style="color: #008000">#Check if there are any errors</span>
+<span style="color: #0000ff">try</span>:
+    element = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.ID, <span style="color: #a31515">&quot;table_welcome_2&quot;</span>)))    
+<span style="color: #0000ff">except</span>:
+    <span style="color: #0000ff">print</span>(<span style="color: #a31515">&quot;Could not connect to B2b. Please try again&quot;</span>)
+<span style="color: #0000ff">finally</span>:
+    <span style="color: #0000ff">print</span>(<span style="color: #a31515">&quot;Welcome to the Secure Access SSL VPN, &quot;</span> + driver.find_element_by_class_name(<span style="color: #a31515">&quot;cssSmall&quot;</span>).text)
+    <span style="color: #0000ff">print</span>(<span style="color: #a31515">&quot;Quit IE.&quot;</span>)
+    driver.quit()
+</pre></td></tr></table></div><br>
         <h1> That's it. Thank you for reading!</h1>
     </section>
 
