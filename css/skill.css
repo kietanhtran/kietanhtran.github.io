@@ -188,7 +188,7 @@ button a {
 }
 /*li a:hover:not(.active) {*/
 button:focus  {
-    background-color: yellow;
+    background-color: darkcyan;
   }
 
 button:hover {
