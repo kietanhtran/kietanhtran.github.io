@@ -187,15 +187,15 @@ button a {
   text-align: center;
 }
 /*li a:hover:not(.active) {*/
-button:focus {
+button:focus  {
     background-color: yellow;
   }
 
-  button:hover {
+button:hover {
     background-color: darkcyan;
     cursor: pointer;
-  }
+}
 
-  .replace{
+.replace{
     display: none;
 }

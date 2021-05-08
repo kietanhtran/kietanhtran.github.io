@@ -77,13 +77,13 @@
             <!-- Navigation -->
             <div class="menu">
                 <ul>
-                    <button><a class="active" onclick="clickCPlus()">C/C++</a></button>
-                    <button><a class="2" onclick="clickCSharp()">C#</a></button>
-                    <button><a class="3" onclick="clickPython()">Python</a></button>
-                    <button><a class="4" onclick="clickBash()">BashScript</a></button>
-                    <button><a class="4" onclick="clickTest()">Testing</a></button>
-                    <button><a class="4" onclick="clickSoft()">SoftSkill</a></button>
-                    <button><a class="4" onclick="clickEnglish()">English</a></button>
+                    <button><a class="btn active" onclick="clickCPlus()">C/C++</a></button>
+                    <button><a class="btn" onclick="clickCSharp()">C#</a></button>
+                    <button><a class="btn" onclick="clickPython()">Python</a></button>
+                    <button><a class="btn" onclick="clickBash()">BashScript</a></button>
+                    <button><a class="btn" onclick="clickTest()">Testing</a></button>
+                    <button><a class="btn" onclick="clickSoft()">SoftSkill</a></button>
+                    <button><a class="btn" onclick="clickEnglish()">English</a></button>
                   </ul>      
             </div>
             <div id="demo">
@@ -162,5 +162,17 @@
         </div>
         
     </section>
+   <!-- <script>
+        // Add active class to the current button (highlight it)
+        var a = document.getElementsByClassName("menu");
+        var btns = a.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].addEventListener("click", function() {
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+          });
+        }
+    </script> -->
 </body>
 </html>
