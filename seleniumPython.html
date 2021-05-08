@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/seleniumPython.css">
+    <link rel="icon" href="/images/porgsurprised.png" type="image/png" sizes="32x32">
+    <title>My résume</title>
+</head>
+<body>
+
+    <!-- Title header -->
+    <header class="header">
+
+        <div class="snowflakes" aria-hidden="true">
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❆
+            </div>
+            <div class="snowflake">
+            ❄
+            </div>
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❆
+            </div>
+            <div class="snowflake">
+            ❄
+            </div>
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❆
+            </div>
+            <div class="snowflake">
+            ❄
+            </div>
+          </div>
+          <div class="imageKiet">
+            <img src="/images/kiet.png" class="userImage">
+            <img src="/images/kiet2.jpg" class="userImage">
+          </div>
+
+      <div class="waviy">
+        <span style="--i:1">M</span>
+        <span style="--i:2">y</span>
+        <span style="--i:3"> </span>
+        <span style="--i:4"> </span>
+        <span style="--i:5">R</span>
+        <span style="--i:6">é</span>
+        <span style="--i:7">s</span>
+        <span style="--i:8">u</span>
+        <span style="--i:9">m</span>
+        <span style="--i:10">e</span>
+       </div>
+       <div class="flex">
+        <h2 class="header-sub-title" id="word"></h2>
+      </div>
+      
+        <h3 class="header__details">
+            Auto login account web using Selenium and Python.
+        </h3>
+    </header>
+    <script src="/js/myScript.js"></script> 
+    <section class="container">
+        <div class="content">
+            <p>
+                In this articale, I will use Python and Selenium library to open a browser to login account.
+                <br>
+                First, we need something as below:
+                <br>
+                1. Install Selenium library by using command: <b>pip install selenium. </b>
+                <br>
+                2. Install Web Driver Server, here I am using Internet Exploer so I install it here: <a href="https://www.selenium.dev/downloads/" target="_blank">IEDriverServer.exe</a> <br>
+                3. Install <a href="https://www.oracle.com/java/technologies/javase-jre8-downloads.html" target="_blank">Java Runtime Environment </a> , 
+                you should choose the version that match up your computer.<br><br>
+                This is the login interface: <br>
+            </p>
+              
+            <div class="img">
+                <img src="/images/b2b_pic1.png" width="500" height="300" style="border: 1.1px solid black;" class="imgPost"> <br>
+                <img src="/images/b2b_pic2.png" width="500" height="300" style="border: 1.1px solid black;" class="imgPost"> <br>
+            </div>
+            <p>
+                SECUREMATRIX is a unique and highly secure.
+                Each time you log in, the number is changed, so the password will change also. Therefore, I make this tool to login automatically regardless of changed number. <br>
+                For example, my password is below image, it will be 42199803. <br>
+            </p>
+            <div class="img">
+                <img src="/images/b2b_pic3.png" width="500" height="300" style="border: 1.1px solid black;" class="imgPost"> <br>
+            </div>
+    
+            <p>
+                We will press F12 to find element of these numbers. The first number is "4" (attribute "alt"="4") so it will be "SMX_BTN_0".<br>
+            </p>
+            <div class="img">
+                <img src="/images/b2b_pic4.png" width="800" height="400" style="border: 1.1px solid black;" class="imgPost"> <br>
+            </div>
+            <p>
+                We have a maxtrix table ID as blelow:
+            </p>
+            <div class="img">
+                <img src="/images/b2b_pic5.png" width="800" height="150" style="border: 1.1px solid black;" class="imgPost"> <br>
+            </div>
+            <p>
+                Likewise, the IDs of the numbers in my password would be "SMX_BTN_0", "SMX_BTN_4", "SMX_BTN_8", "SMX_BTN_12", "SMX_BTN_13", "SMX_BTN_14", "SMX_BTN_15", "SMX_BTN_28". <br>
+                <b>Source code:</b>
+
+                <div class="code">
+                    <pre>
+<code class="python">#Library
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from time import sleep
+
+#User name
+userName='a512xxxx'
+#Path of IE Driver
+driver = webdriver.Ie("D:\Downloads\IEDriverServer.exe")
+
+#Link login
+driver.get("https://b2b-gateway.(hidden_name).com/login/ssl")
+driver.implicitly_wait(15) 
+
+#Find element and send data
+driver.find_element(By.NAME,'LOGIN_ID').send_keys(userName)
+driver.find_element(By.CLASS_NAME,'btnCustom').click()
+
+#Initialize password and fill password
+password=""
+arr = ["SMX_BTN_0", "SMX_BTN_4", "SMX_BTN_8", "SMX_BTN_12", "SMX_BTN_13", "SMX_BTN_14", "SMX_BTN_15", "SMX_BTN_28"]
+for i in arr:
+    passTemp = driver.find_element(By.ID,i).get_attribute("alt")
+    password += passTemp
+
+driver.find_element_by_name("PASSWORD").send_keys(password)
+button = driver.find_element_by_class_name("btnCustom").click()
+print("Waiting...")
+
+#Check if there are any errors
+try:
+    element = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.ID, "table_welcome_2")))    
+except:
+    print("Could not connect to B2b. Please try again")
+finally:
+    print("Welcome to the Secure Access SSL VPN, " + driver.find_element_by_class_name("cssSmall").text)
+    print("Quit IE.")
+    driver.quit()
+                    </code>
+                </pre>
+                </div>
+            </p>
+        </div>
+        
+    </section>
+
+</body>
+</html>
