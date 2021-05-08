@@ -141,61 +141,13 @@ body {
 
 .card {
   width: 110rem;
-  height: 22rem;
+  height: 125rem;
   background-color: snow;
   margin: 2rem;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
   border-top: 6px solid;
   border-radius: 8px;
-  padding: 2rem;
   border-color: hsl(180, 62%, 55%);
+  padding: 2rem;
   margin: auto;
-}
-
-#demo{
-  padding-top: 15px;
-  padding-left: 8px;
-  color: darkred;
-  font-size: 2rem;
-}
-
-  /* upper strip holding the tabs*/
-  .menu{
-    position: relative;
-} 
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  width: auto;
-  background-color: snow
-}
-
-button {
-  float: left;
-  border: 0.5px solid black ;
-  background-color: pink;
-  border-radius: 5%;
-}
-button a {
-  display: block;
-  font-size: 2.5rem;
-  text-decoration: none;
-  padding: 14px 16px;
-  text-align: center;
-}
-/*li a:hover:not(.active) {*/
-button:focus {
-    background-color: yellow;
-  }
-
-  button:hover {
-    background-color: darkcyan;
-    cursor: pointer;
-  }
-
-  .replace{
-    display: none;
 }

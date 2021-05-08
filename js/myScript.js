@@ -78,8 +78,8 @@ function pathSkill() {
 	window.location.href = "/skill.html";
 }
 
-function pathEdu() {
-	window.location.href = "/education.html";
+function pathBlog() {
+	window.location.href = "/myblog.html";
 }
 
 function pathProject() {
