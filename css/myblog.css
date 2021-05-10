@@ -152,9 +152,24 @@ body {
   margin: auto;
 }
 
+p {
+  display: flex;
+  justify-content: space-between;
+}
 .mypost{
   font-size: 30px;
   padding-left: 35px;
+  text-decoration: none;
+}
+
+.time{
+  font-size: 15px;
+  font-weight: bold;
+  font-style: italic;
+  color: gray;
+  padding-left: 70px;
+  font-family: Brush;
+  margin-top: -5px;
 }
 
 a:visited {
@@ -162,11 +177,12 @@ a:visited {
 }
 
 /* mouse over link */
-a:hover {
-  color: hotpink;
+a:hover, .time:hover {
+  color: green;
 }
 
 /* selected link */
-a:active {
-  color: green;
+a:active{
+  color: hotpink;
 }
+

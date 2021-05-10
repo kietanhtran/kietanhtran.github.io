@@ -187,3 +187,7 @@ p{
 .contentCode{
   padding-left:10px;
 }
+
+.time{
+  text-align: right;
+}
