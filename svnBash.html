@@ -141,7 +141,7 @@ yourName=<span style="color: #a31515">&quot;bv_kiettran&quot;</span>
             <br>
             <p>
                 ● This is a log message of a work product. It will display all information such as date, author, revision, path... 
-                but I only need the path, so I will use <b>"grep"</b>command and store these paths to a temporary.<br>
+                but I only need the path <b>(red box as shown below)</b>, so I will use <b>"grep"</b>command and store these paths to a temporary file.<br>
             </p>
 
             <div class="img">
@@ -149,6 +149,49 @@ yourName=<span style="color: #a31515">&quot;bv_kiettran&quot;</span>
             </div><br>
             <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%">svn log -v <span style="color: #a31515">&#39;hidden_repository&#39;</span> -r {2021-03-25}:{2021-04-25} | sed -n <span style="color: #a31515">&quot;/$bv_kiettran/,/-----$/ p&quot;</span> | grep <span style="color: #a31515">&quot;M /\|A /&quot;</span> &gt; temp.txt</pre></td></tr></table></div>
             <br>
+            <p>
+                ● Now, the temporary file contains the following: <br>
+            </p>
+
+            <div class="img">
+                <img src="/images/svn_pic6.png" width="900" height="260" style="border: 1.1px solid black;" class="imgPost">
+            </div><br>
+            <p>
+                ● Finally, I just replace <b>"M /"</b> and <b>"A /"</b> into your repository address bu using <b>"sed"</b> command. Then the result will be stored to another temporary file.<br>
+            </p>
+
+            <div class="img">
+                <img src="/images/svn_pic5.png" width="700" height="270" style="border: 1.1px solid black;" class="imgPost">
+            </div><br>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1</pre></td><td><pre class="contenCode" style="margin: 0; line-height: 125%">sed <span style="color: #a31515">&#39;s|   M |http://(hidden_repository)|g;s|   A |http://(hidden_repository)|g&#39;</span> temp.txt &gt; temp1.txt</pre></td></tr></table></div>
+            <br>
+
+            <h1> Here is full of script.</h1><br>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%"> 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12</pre></td><td><pre  class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #008000">#Choose the date</span>
+chooseDate=<span style="color: #a31515">&#39;{2021-03-25}:{2021-04-25}&#39;</span>
+
+<span style="color: #008000">#Change your SVN name</span>
+yourName=<span style="color: #a31515">&quot;bv_kiettran&quot;</span>
+
+echo <span style="color: #a31515">&quot;Please wait...&quot;</span>
+svn log -v <span style="color: #a31515">&#39;hidden_repository&#39;</span> -r $chooseDate | sed -n <span style="color: #a31515">&quot;/$yourName/,/-----$/ p&quot;</span> | grep <span style="color: #a31515">&quot;M /\|A /&quot;</span> &gt; temp.txt
+sed <span style="color: #a31515">&#39;s|   M |hidden_repository|g;s|   A |hidden_repository|g&#39;</span> temp.txt &gt; temp1.txt
+sort -u temp1.txt &gt; res.txt
+echo <span style="color: #a31515">&quot;Done! Check result in file res.txt&quot;</span>
+rm -f temp.txt temp1.txt
+</pre></td></tr></table></div>
+               <br>
             <h1> Thank you for taking the time to read.</h1>
         </div>
     </section>
