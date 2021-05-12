@@ -141,7 +141,7 @@ body {
 
 .container {
   width: 110rem;
-  height: 415rem;
+  height: 492rem;
   /* background-color: snow; */
   background-color: white;
   margin: 2rem;
@@ -164,7 +164,7 @@ p{
 }
 
 .imgPost{
-  transition: all .3s ease-in-out ;
+  transition: all .3s ease ;
   cursor: zoom-in;
 }
 
