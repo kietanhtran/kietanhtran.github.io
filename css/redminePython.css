@@ -161,19 +161,20 @@ p{
 }
 .img{
   text-align: center;
-
-  
 }
-.imgPost{
-  transition: all .3s ease;
 
+.imgPost{
+  transition: all .3s ease-in-out ;
+  cursor: zoom-in;
 }
 
 .imgPost:hover {
   transform: scale(1.3); 
-  cursor: zoom-in;
+
+
   
 }
+
 
 .souceCode {
   padding-left: 35px;

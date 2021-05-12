@@ -97,8 +97,5 @@ function clickSoft() {
 	var x = document.getElementById("soft").innerHTML;
 	document.getElementById("demo").innerHTML = x;
 }
-function clickEnglish() {
-	var x = document.getElementById("english").innerHTML;
-	document.getElementById("demo").innerHTML = x;
-}
+
 

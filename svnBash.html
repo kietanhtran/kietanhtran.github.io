@@ -72,6 +72,7 @@
         <div class="content">
             <p>
                 In this article, I'll demonstrate how to use SVN command and Shell Script to get link of work product I have made in a month. <br>
+                SVN stands for Subversion. So, SVN and Subversion are the same. SVN is used to manage and track changes to code and assets across projects.<br>
                 Monthly, I have to list all the paths of work products such as Word, Excel, .c, .h files...
                 For example, if I list manually all links as shown below, I will take a lot of time to find them.<br>
             </p>
@@ -135,7 +136,7 @@ yourName=<span style="color: #a31515">&quot;bv_kiettran&quot;</span>
 </pre></td></tr></table></div>
             <br>
             <p>
-                ● I use this command to see a log message of work product.This is a log message of a work product. It will display all information such as date, author, revision, path... <br>
+                ● I use this command to see a log message of work product. This is a log message of a work product. It will display all information such as date, author, revision, path... <br>
             </p>
             <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%">svn log -v <span style="color: #a31515">&#39;hidden_repository&#39;</span> -r {2021-03-25}:{2021-04-25} | sed -n <span style="color: #a31515">&quot;/$bv_kiettran/,/-----$/ p&quot;</span></pre></td></tr></table></div>
             <br>
