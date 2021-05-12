@@ -71,16 +71,28 @@
     <section class="container">
         <div class="content">
             <p>
-                In this article, I'll demonstrate how to use SVN command and Shell Script to get link of work product I have made in a month. <br>
-                Monthly, I have to list all the paths of work products such as Word, Excel, .c, .h files...
-                For example, if I list manually all links as shown below, I will take a lot of time to find them.<br>
+                In this article, I'll demonstrate how to use Redmine library and Python to get my task to create weekly report.
+                I will get name of the task via the time I have logged. <br>
+                First, I have to log in to Redmine address. There are 2 ways to log in, they are:<br>
+                &emsp; 1. Log in via <b>user name and password</b>.<br>
             </p>
-
-            <br>
+            <div class="img">
+                <img src="/images/redmine_pic1.png" width="400" height="200" style="border: 1.1px solid black;" class="imgPost">
+            </div> <br>
             <p>
-                In reality, the number of links can be two or three times higher. So, in order to save time, I created this tool to get all links quickly.
+                &emsp; 2. Log in via <b>API access key</b>: From home screen, go <b>My account -> API access key</b>.<br>
             </p>
-            <h1> Demo:</h1>
+            <div class="img">
+                <img src="/images/redmine_pic2.png" width="400" height="300" style="border: 1.1px solid black;" class="imgPost">
+            </div> <br>
+
+            <p>
+                In this case, I used method 2 because it was easier.
+            </p>
+            <h1> Steps to do:<br></h1>
+            <p>    
+                ● We need install Selenium library first.
+            </p>
             <p>
                 ● Run command: <b>sh Deliverable.sh</b>.
             </p>
