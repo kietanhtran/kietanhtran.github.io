@@ -27,7 +27,7 @@ body {
 /* Animation snow */
 .snowflake {
   color: crimson;
-  font-size: 1em;
+  font-size: 0.8em;
   text-shadow: 0 0 1px yellow;
 }
 
@@ -176,7 +176,7 @@ a:visited {
 }
 
 /* mouse over link */
-a:hover, .time:hover {
+a:hover{
   color: green;
 }
 
