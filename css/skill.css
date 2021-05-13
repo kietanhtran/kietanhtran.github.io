@@ -27,7 +27,7 @@ body {
 /* Animation snow */
 .snowflake {
   color: crimson;
-  font-size: 0.8em;
+  font-size: 1em;
   text-shadow: 0 0 1px yellow;
 }
 
