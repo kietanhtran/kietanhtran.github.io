@@ -142,7 +142,7 @@ body {
 .container {
   width: 110rem;
   height: 472rem;
-  /* background-color: snow; */
+  /* background-color: white; */
   background-color: white;
   margin: 2rem;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);

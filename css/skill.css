@@ -142,7 +142,7 @@ body {
 .card {
   width: 110rem;
   height: 22rem;
-  background-color: snow;
+  background-color: white;
   margin: 2rem;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
   border-top: 6px solid;
