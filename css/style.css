@@ -11,6 +11,7 @@ html {
   font-size:62.5%;
 }
 
+
 body {
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
@@ -126,14 +127,7 @@ body {
   }
 }
 
-.footer{
-  position: fixed;
-  left: 0;  
-  bottom: 0;  
-  right: 0; 
-  margin: 10px;
-  text-align: center;
-}
+
 
 h3, p {
   color: hsl(229, 6%, 66%);
@@ -227,4 +221,12 @@ img {
 /* Add a hover effect if you want */
 .fa:hover {
   opacity: 0.7;
+}
+.footer{
+  position: fixed;
+  left: 0;  
+  bottom: 0;  
+  right: 0; 
+  margin: 10px;
+  text-align: center;
 }
