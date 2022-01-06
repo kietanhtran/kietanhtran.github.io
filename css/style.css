@@ -23,11 +23,6 @@ body {
   /* color: hsl(229, 6%, 66%); */
   background-color: mintcream; 
 }
-.footer{
-  position: fixed;
-  margin: 10px;
-  text-align: center;
-}
 
 /* Animation snow */
 .snowflake {
@@ -131,7 +126,11 @@ body {
   }
 }
 
-
+.footer{
+  position: fixed;
+  margin: 10px;
+  text-align: center;
+}
 
 h3, p {
   color: hsl(229, 6%, 66%);
