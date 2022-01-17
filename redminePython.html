@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/redminePython.css">
+    <link rel="icon" href="/images/icontitle.png" type="image/png" sizes="32x32">
+</head>
+<body>
+
+    <!-- Title header -->
+    <header class="header">
+
+        <div class="snowflakes" aria-hidden="true">
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❆
+            </div>
+            <div class="snowflake">
+            ❄
+            </div>
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❆
+            </div>
+            <div class="snowflake">
+            ❄
+            </div>
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❆
+            </div>
+            <div class="snowflake">
+            ❄
+            </div>
+          </div>
+          <div class="imageKiet">
+            <img src="/images/kiet.png" class="userImage">
+            <img src="/images/kiet2.jpg" class="userImage">
+          </div>
+
+      <div class="waviy">
+        <span style="--i:1">M</span>
+        <span style="--i:2">y</span>
+        <span style="--i:3"> </span>
+        <span style="--i:4"> </span>
+        <span style="--i:5">B</span>
+        <span style="--i:6">l</span>
+        <span style="--i:7">o</span>
+        <span style="--i:8">g</span>
+       </div>
+       <div class="flex">
+        <h2 class="header-sub-title" id="word"></h2>
+      </div>
+      
+        <h3 class="header__details" id="title">
+            Create weekly report using Redmine and Python.
+        </h3>
+    </header>
+    <script>{
+
+        document.title =  document.getElementById("title").innerHTML;
+      }
+  </script>
+    <script src="/js/myScript.js"></script> 
+    <section class="container">
+        <div class="content">
+            <p>
+                In this article, I'll demonstrate how to use Redmine library and Python to get my task to create weekly report on Confluence.
+                I will get name of the task via the time I have logged. <br>
+                <b>First</b>, I have to create a datepicker to choose the date in a week.
+            </p>
+
+            <div class="img">
+                <img src="/images/redmine_datepicker.png" width="300" height="280" style="border: 1.1px solid black;" class="imgPost">
+            </div> <br>
+            <p>
+                <b>Second</b>, I have to log in to Redmine address by Python. There are 2 ways to log in, they are:<br>
+                &emsp; 1. Log in via <b>user name and password</b>.<br>
+            </p>
+            <div class="img">
+                <img src="/images/redmine_pic1.png" width="400" height="200" style="border: 1.1px solid black;" class="imgPost">
+            </div> <br>
+            <p>
+                &emsp; 2. Log in via <b>API access key</b>: From home screen, go <b>My account -> API access key</b>.<br>
+            </p>
+            <div class="img">
+                <img src="/images/redmine_pic2.png" width="400" height="300" style="border: 1.1px solid black;" class="imgPost">
+            </div> <br>
+
+            <p>
+                In this case, I used method 2.
+            </p>
+            <h1> Steps to do:<br></h1>
+            <p>    
+                ● We need install library first:<br>
+
+                &emsp; 1. Run <b>pip install python-redmine</b> to install the Redmine library. <b>Python-Redmine</b> is a library for communicating with a Redmine project management application.<br>
+                &emsp; 2. Run <b> pip install tkcalendar</b> to install the tkcalendar library. <b>tkcalendar</b> is a python module that provides the Calendar and DateEntry widgets for Tkinter. <br>
+            </p>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #0000ff">import</span> tkinter <span style="color: #0000ff">as</span> tk
+<span style="color: #0000ff">from</span> tkinter <span style="color: #0000ff">import</span> ttk
+<span style="color: #0000ff">from</span> tkcalendar <span style="color: #0000ff">import</span> Calendar, DateEntry
+<span style="color: #0000ff">from</span> redminelib <span style="color: #0000ff">import</span> Redmine 
+</pre></td></tr></table></div>
+               <br> 
+             <p>    
+                ● Next, we will modify correct the information accordingly.<br>
+
+                &emsp; 1. <b>API access key</b> as above.<br>
+                &emsp; 2. <b>User ID</b>.<br>
+                <b>User ID</b> will will display in the corner of screen when moving the mouse over your login ID. My user ID is <b>5158</b>.
+            </p>
+            <div class="img">
+                <img src="/images/redmine_pic3.png" width="800" height="400" style="border: 1.1px solid black;" class="imgPost">
+            </div> 
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #008000"># ------- Modify here ------- #</span>
+keyRedmine=<span style="color: #a31515">&quot;5b0fd80da4413c8d7f33dec58942b96346dc9f51&quot;</span>
+userID=<span style="color: #a31515">&quot;5158&quot;</span>
+</pre></td></tr></table></div>
+               <br>
+            <p>    
+                ● We will create a date picker widget from <b>tkcalendar</b>.<br>
+            </p>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre lass="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%">root = tk.Tk()
+<span style="color: #0000ff">def</span> Get_from_date():
+    <span style="color: #0000ff">global</span> fromDate
+    fromDate = str(cal.selection_get())
+
+<span style="color: #0000ff">def</span> Get_to_date():
+    <span style="color: #0000ff">global</span> toDate
+    toDate = str(cal.selection_get())
+    
+cal = Calendar(root,font=<span style="color: #a31515">&quot;Arial 12&quot;</span>, selectmode=<span style="color: #a31515">&#39;day&#39;</span>,cursor=<span style="color: #a31515">&quot;hand2&quot;</span>)
+cal.pack(fill=<span style="color: #a31515">&quot;both&quot;</span>, expand=True)
+ttk.Button(root, text=<span style="color: #a31515">&quot;From this date&quot;</span>, command=Get_from_date).pack()
+ttk.Button(root, text=<span style="color: #a31515">&quot;To this date&quot;</span>, command=Get_to_date).pack()
+root.mainloop()
+</pre></td></tr></table></div>
+            <br>
+            <p>
+                <b>&emsp; How to choose a date on the widget?</b><br>
+                Suppose I choose from 12-Apr to 16-Apr, then do the following image (the steps are marked with numbers):
+            </p>
+            <div class="img">
+                <img src="/images/redmine_pic4.png" width="300" height="280" style="border: 1.1px solid black;" class="imgPost">
+            </div> 
+            <br>
+            <p>    
+                ● Next, we will get all tasks via <b>for loop</b> and other infomation to create a table of report.<br>
+            </p>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;-------------------------------------------------------------------------------------------------&quot;</span>)
+<span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;||Module||PIC||Sub-leader||Task||Progress||Deadline||Delays(in days)||Issue/risk||Countermeasure||Note&quot;</span>)
+time = redmine.time_entry.filter(user_id=userID, from_date=fromDate, to_date=toDate)
+<span style="color: #0000ff">for</span> log <span style="color: #0000ff">in</span> time:  
+    issue = redmine.issue.get(int(log.issue))
+    res = <span style="color: #a31515">&quot;#&quot;</span>+str(log.issue)+<span style="color: #a31515">&quot; - &quot;</span>+str(issue)
+    res = res.replace(<span style="color: #a31515">&#39;[&#39;</span>, <span style="color: #a31515">&#39;[[&#39;</span>)
+    res = res.replace(<span style="color: #a31515">&#39;]&#39;</span>, <span style="color: #a31515">&#39;]]&#39;</span>)
+    <span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;|&quot;</span>+module+<span style="color: #a31515">&quot;|&quot;</span>+pic+<span style="color: #a31515">&quot;|&quot;</span>+sublead+<span style="color: #a31515">&quot;|&quot;</span>+res+<span style="color: #a31515">&quot;|&quot;</span>+progress+<span style="color: #a31515">&quot;|&quot;</span>+deadline+<span style="color: #a31515">&quot;|&quot;</span>+delay+<span style="color: #a31515">&quot;|-|-|-|&quot;</span>)
+</pre></td></tr></table></div>
+            <br>
+            <p>    
+                ● After completing the above steps, the result now is:<br>
+            </p>
+            <div class="img">
+                <img src="/images/redmine_pic5.png" width="900" height="120" style="border: 1.1px solid black;" class="imgPost">
+            </div> 
+            <br>
+            <p>    
+                ● Finally, I go to Confluence and paste the result to a report page.<br>
+            </p>
+            <div class="img">
+                <img src="/images/redmine_pic6.png" width="600" height="110" style="border: 1.1px solid black;" class="imgPost">
+                <img src="/images/redmine_pic7.png" width="800" height="410" style="border: 1.1px solid black;" class="imgPost">
+                <img src="/images/redmine_pic8.png" width="900" height="180" style="border: 1.1px solid black;" class="imgPost">
+
+            </div> 
+            <br>
+            <h1> Here is full of source code.<br></h1><br>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #0000ff">import</span> tkinter <span style="color: #0000ff">as</span> tk
+<span style="color: #0000ff">from</span> tkinter <span style="color: #0000ff">import</span> ttk
+<span style="color: #0000ff">from</span> tkcalendar <span style="color: #0000ff">import</span> Calendar, DateEntry
+<span style="color: #0000ff">from</span> redminelib <span style="color: #0000ff">import</span> Redmine 
+
+<span style="color: #008000"># ------- Modify here ------- #</span>
+keyRedmine=<span style="color: #a31515">&quot;5b0fd80da4413c8d7f33dec58942b96346dc9f51&quot;</span>
+userID=<span style="color: #a31515">&quot;5158&quot;</span>
+module = <span style="color: #a31515">&quot;GPT&quot;</span>
+pic = <span style="color: #a31515">&quot;Kiet Tran&quot;</span>
+sublead = <span style="color: #a31515">&quot;Bang Nguyen&quot;</span>
+progress = <span style="color: #a31515">&quot;0 -&gt; 100%&quot;</span>
+deadline = <span style="color: #a31515">&quot;10 - May&quot;</span>
+delay = <span style="color: #a31515">&quot;0&quot;</span>
+fromDate = <span style="color: #a31515">&quot;&quot;</span>
+toDate = <span style="color: #a31515">&quot;&quot;</span>
+<span style="color: #008000"># --------------------------- #</span>
+
+root = tk.Tk()
+<span style="color: #0000ff">def</span> Get_from_date():
+    <span style="color: #0000ff">global</span> fromDate
+    fromDate = str(cal.selection_get())
+
+<span style="color: #0000ff">def</span> Get_to_date():
+    <span style="color: #0000ff">global</span> toDate
+    toDate = str(cal.selection_get())
+    
+cal = Calendar(root,font=<span style="color: #a31515">&quot;Arial 12&quot;</span>, selectmode=<span style="color: #a31515">&#39;day&#39;</span>,cursor=<span style="color: #a31515">&quot;hand2&quot;</span>)
+cal.pack(fill=<span style="color: #a31515">&quot;both&quot;</span>, expand=True)
+ttk.Button(root, text=<span style="color: #a31515">&quot;From this date&quot;</span>, command=Get_from_date).pack()
+ttk.Button(root, text=<span style="color: #a31515">&quot;To this date&quot;</span>, command=Get_to_date).pack()
+root.mainloop()
+redmine = Redmine(<span style="color: #a31515">&#39;https://socrm.dgn.renesas.com&#39;</span>, key=keyRedmine,requests={<span style="color: #a31515">&#39;verify&#39;</span>: False})
+
+<span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;-------------------------------------------------------------------------------------------------&quot;</span>)
+<span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;||Module||PIC||Sub-leader||Task||Progress||Deadline||Delays(in days)||Issue/risk||Countermeasure||Note&quot;</span>)
+time = redmine.time_entry.filter(user_id=userID, from_date=fromDate, to_date=toDate)
+<span style="color: #0000ff">for</span> log <span style="color: #0000ff">in</span> time:  
+    issue = redmine.issue.get(int(log.issue))
+    res = <span style="color: #a31515">&quot;#&quot;</span>+str(log.issue)+<span style="color: #a31515">&quot; - &quot;</span>+str(issue)
+    res = res.replace(<span style="color: #a31515">&#39;[&#39;</span>, <span style="color: #a31515">&#39;[[&#39;</span>)
+    res = res.replace(<span style="color: #a31515">&#39;]&#39;</span>, <span style="color: #a31515">&#39;]]&#39;</span>)
+    <span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;|&quot;</span>+module+<span style="color: #a31515">&quot;|&quot;</span>+pic+<span style="color: #a31515">&quot;|&quot;</span>+sublead+<span style="color: #a31515">&quot;|&quot;</span>+res+<span style="color: #a31515">&quot;|&quot;</span>+progress+<span style="color: #a31515">&quot;|&quot;</span>+deadline+<span style="color: #a31515">&quot;|&quot;</span>+delay+<span style="color: #a31515">&quot;|-|-|-|&quot;</span>)
+</pre></td></tr></table></div>
+              <br>
+            <h1> Thank you for taking the time to read!</h1>
+        </div>
+    </section>
+
+</body>
+</html>
