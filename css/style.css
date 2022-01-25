@@ -224,10 +224,8 @@ img {
 }
 .footer{
   position: fixed;
-  /*
-  left: 0;  
-  bottom: 5px;  
+  bottom: 5px;
+  left: 0;    
   right: 0; 
-  */
   text-align: center;
 }
