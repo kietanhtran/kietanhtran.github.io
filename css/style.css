@@ -223,9 +223,6 @@ img {
   opacity: 0.7;
 }
 .footer{
-  position: fixed;
-  bottom: 5px;
-  left: 0;    
-  right: 0; 
+  position: relative;
   text-align: center;
 }
