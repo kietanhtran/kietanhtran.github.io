@@ -71,36 +71,6 @@ function pathProject() {
 	window.location.href = "/project.html";
 }
 
-function clickCPlus() {
-	var x = document.getElementById("cplus").innerHTML;
-	document.getElementById("demo").innerHTML = x;
-}
-
-function clickCSharp() {
-	var x = document.getElementById("csharp").innerHTML;
-	document.getElementById("demo").innerHTML = x;
-}
-
-function clickPython() {
-	var x = document.getElementById("python").innerHTML;
-	document.getElementById("demo").innerHTML = x;
-}
-function clickBash() {
-	var x = document.getElementById("bash").innerHTML;
-	document.getElementById("demo").innerHTML = x;
-}
-function clickTest() {
-	var x = document.getElementById("testing").innerHTML;
-	document.getElementById("demo").innerHTML = x;
-}
-function clickSoft() {
-	var x = document.getElementById("soft").innerHTML;
-	document.getElementById("demo").innerHTML = x;
-}
-function clickEnglish() {
-	var x = document.getElementById("english").innerHTML;
-	document.getElementById("demo").innerHTML = x;
-}
 
 // disable right click
 document.addEventListener('contextmenu', event => event.preventDefault());
