@@ -64,7 +64,7 @@ function pathSkill() {
 }
 
 function pathBlog() {
-	window.location.href = "/myblog.html";
+	window.location.href = "/blog.html";
 }
 
 function pathProject() {

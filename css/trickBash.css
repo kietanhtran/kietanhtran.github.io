@@ -141,7 +141,7 @@ body {
 
 .container {
   width: 110rem;
-  height: 340rem;
+  height: 220rem;
   /* background-color: white; */
   background-color: white;
   margin: 2rem;
@@ -186,4 +186,27 @@ p{
 
 .contentCode{
   padding-left:10px;
+}
+
+.tableFormat {
+  border-collapse: collapse;
+  width:550px;
+}
+.tableFormat th{
+  border: 2px solid black;
+  color: black;
+  padding:5px;
+}
+.tableFormat td{
+  border: 2px solid black;
+  color: black;
+  padding:5px;
+}
+.col1{
+  width:120px;
+}
+.table{
+  display: table;
+  margin-right: auto;
+  margin-left: auto;
 }

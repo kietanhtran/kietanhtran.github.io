@@ -141,7 +141,7 @@ body {
 
 .card {
   width: 110rem;
-  height: 125rem;
+  height: 140rem;
   background-color: white;
   margin: 2rem;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
@@ -152,13 +152,12 @@ body {
   margin: auto;
 }
 .company{
-  color:Crimson;
+  color:OrangeRed;
 }
 
 .position{
-  color: gray;
+  color: green;
   padding-left: 30px;
-  font-style: italic;
 }
 .subtitle{
   padding-left: 30px;

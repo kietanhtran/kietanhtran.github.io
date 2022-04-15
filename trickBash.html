@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/svnBash.css">
+    <link rel="stylesheet" href="css/trickBash.css">
     <link rel="icon" href="/images/icontitle.png" type="image/png" sizes="32x32">
 </head>
 <body>
@@ -63,7 +63,7 @@
       </div>
       
         <h3 class="header__details" id="title">
-            Get work product using SVN and Shell Script.
+            Some notes when using Bash Script.
         </h3>
     </header>
     <script>{
@@ -74,131 +74,199 @@
     <script src="/js/myScript.js"></script> 
     <section class="container">
         <div class="content">
-            <p>
-                In this article, I'll demonstrate how to use SVN command and Shell Script to get link of work product I have made in a month. <br>
-                SVN stands for Subversion. So, SVN and Subversion are the same. SVN is used to manage and track changes to code and assets across projects.<br>
-                Monthly, I have to list all the paths of work products such as Word, Excel, .c, .h files...
-                For example, if I list manually all links as shown below, I will take a lot of time to find them.<br>
-            </p>
-            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%">http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/H3/GPT/UT/R-CarH3_MCAL_GPT_UTReport.xlsx
-http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/H3/GPT/UT/Review_Minutes/R-CarH3_MCAL_GPT_UT_PeerReviewMinutes.xlsm
-http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/H3/MCU/IT/Review_Minutes/R-CarH3_MCAL_MCU_IT_PR_Checklist.xlsm
-http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/M3/GPT/Coverage/R-CarM3_MCAL_GPT_DriverCoverageReport.xlsm
-http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/M3/GPT/IT/Archive_folder/ConfigurationIT/EvalEnvelope_20210327.zip
-http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/M3/GPT/IT/Archive_folder/ConfigurationIT/EvalEnvelope_20210401.zip
-http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/M3/GPT/IT/Archive_folder/DriverIT/EvalEnvelope_20210409.zip
-http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/M3/GPT/IT/R-CarM3_MCAL_GPT_ConfigurationITReport.xlsx
-http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/M3/GPT/IT/R-CarM3_MCAL_GPT_DriverITReport.xlsx
-http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/M3/GPT/IT/R-CarM3_MCAL_GPT_PerformanceITReport.xlsx
-</pre></td></tr></table></div>
-            <br>
-            <p>
-                In reality, the number of links can be two or three times higher. So, in order to save time, I created this tool to get all links quickly.
-            </p>
-            <h1> Demo:</h1>
-            <p>
-                ● Run command: <b>sh Deliverable.sh</b>.
-            </p>
-            <div class="img">
-                <img src="/images/svn_pic2.png" width="400" height="100" style="border: 1.1px solid black;" class="imgPost">
-            </div> <br>
-            <p>
-                ● We will wait for it to run and this script will generate the output file <b>res.txt</b>. The time the script runs depends on the network speed and the number of files that we do.<br>
-            </p>
-            <div class="img">
-                <img src="/images/svn_pic3.png" width="400" height="100" style="border: 1.1px solid black;" class="imgPost">
-            </div><br>
-            <p>
-                ● Then, we just copy the result and paste into the report.<br>
-            </p>
-            <div class="img">
-                <img src="/images/svn_pic4.png" width="850" height="600" style="border: 1.1px solid black;" class="imgPost">
-            </div><br>
-            <h1> Now we will reseach how this script work.</h1>
-            <p>
-                ● Due to I have to make the report monthly, I set the date is from <b>{2021-03-25}</b> to <b>{2021-04-25}</b> and user name is my name (<b>bv_kiettran</b>). <br>
-            </p>
-            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
-2
-3
-4
-5</pre></td><td><pre class="contentCode"  style="margin: 0; line-height: 125%"><span style="color: #008000">#Choose the date</span>
-chooseDate=<span style="color: #a31515">&#39;{2021-03-25}:{2021-04-25}&#39;</span>
-
-<span style="color: #008000">#Change your SVN name</span>
-yourName=<span style="color: #a31515">&quot;bv_kiettran&quot;</span>
-</pre></td></tr></table></div>
-            <br>
-            <p>
-                ● I use this command to see a log message of work product. This is a log message of a work product. It will display all information such as date, author, revision, path... <br>
-            </p>
-            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%">svn log -v <span style="color: #a31515">&#39;hidden_repository&#39;</span> -r {2021-03-25}:{2021-04-25} | sed -n <span style="color: #a31515">&quot;/$bv_kiettran/,/-----$/ p&quot;</span></pre></td></tr></table></div>
-            <br>
-            <p>
-                ● This is a log message of a work product. It will display all information such as date, author, revision, path... 
-                but I only need the path <b>(red box as shown below)</b>, so I will use <b>"grep"</b>command and store these paths to a temporary file.<br>
-            </p>
-
-            <div class="img">
-                <img src="/images/svn_pic5.png" width="700" height="270" style="border: 1.1px solid black;" class="imgPost">
-            </div><br>
-            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%">svn log -v <span style="color: #a31515">&#39;hidden_repository&#39;</span> -r {2021-03-25}:{2021-04-25} | sed -n <span style="color: #a31515">&quot;/$bv_kiettran/,/-----$/ p&quot;</span> | grep <span style="color: #a31515">&quot;M /\|A /&quot;</span> &gt; temp.txt</pre></td></tr></table></div>
-            <br>
-            <p>
-                ● Now, the temporary file contains the following: <br>
-            </p>
-
-            <div class="img">
-                <img src="/images/svn_pic6.png" width="900" height="260" style="border: 1.1px solid black;" class="imgPost">
-            </div><br>
-            <p>
-                ● Finally, I just replace <b>"M /"</b> and <b>"A /"</b> into your repository address bu using <b>"sed"</b> command. Then the result will be stored to another temporary file.<br>
-            </p>
-
-            <div class="img">
-                <img src="/images/svn_pic5.png" width="700" height="270" style="border: 1.1px solid black;" class="imgPost">
-            </div><br>
-            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1</pre></td><td><pre class="contenCode" style="margin: 0; line-height: 125%">sed <span style="color: #a31515">&#39;s|   M |http://(hidden_repository)|g;s|   A |http://(hidden_repository)|g&#39;</span> temp.txt &gt; temp1.txt</pre></td></tr></table></div>
-            <br>
-
-            <h1> Here is full of script.</h1><br>
-            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
-2
-3
-4
-5
-6
-7
-8
-9
+            <p> This article is designed to keep track of some of the most commonly used commands at work.<br>
+            <p  style="color:red"><b>◉ Arguments:</b></p>
+           <!-- HTML generated using hilite.me -->
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
 10
 11
-12</pre></td><td><pre  class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #008000">#Choose the date</span>
-chooseDate=<span style="color: #a31515">&#39;{2021-03-25}:{2021-04-25}&#39;</span>
+12</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #008000"># Example: ./test.sh arg1 arg2 arg3</span>
+<span style="color: #008000"># Print number of arguments, return a number</span>
+<span style="color: #008000"># Output: 3</span>
+echo $#
 
-<span style="color: #008000">#Change your SVN name</span>
-yourName=<span style="color: #a31515">&quot;bv_kiettran&quot;</span>
+<span style="color: #008000"># Print 1st argument</span>
+<span style="color: #008000"># Output: arg1</span>
+echo $1
 
-echo <span style="color: #a31515">&quot;Please wait...&quot;</span>
-svn log -v <span style="color: #a31515">&#39;hidden_repository&#39;</span> -r $chooseDate | sed -n <span style="color: #a31515">&quot;/$yourName/,/-----$/ p&quot;</span> | grep <span style="color: #a31515">&quot;M /\|A /&quot;</span> &gt; temp.txt
-sed <span style="color: #a31515">&#39;s|   M |hidden_repository|g;s|   A |hidden_repository|g&#39;</span> temp.txt &gt; temp1.txt
-sort -u temp1.txt &gt; res.txt
-echo <span style="color: #a31515">&quot;Done! Check result in file res.txt&quot;</span>
-rm -f temp.txt temp1.txt
-</pre></td></tr></table></div>
-               <br>
-            <h1> Thank you for taking the time to read!</h1>
-        </div>
+<span style="color: #008000"># Print all arguments</span>
+<span style="color: #008000"># Output: arg1 arg2 arg3</span>
+echo $@
+</pre></td></tr></table></div><br>
+            <p  style="color:red"><b>◉ Input and file:</b></p>
+            <!-- HTML generated using hilite.me -->
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td><pre  class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #008000"># Read input</span>
+read -p <span style="color: #a31515">&quot;Enter input:&quot;</span> var
+echo $var
+
+<span style="color: #008000"># Read file</span>
+<span style="color: #0000ff">while </span>IFS= read -r line; <span style="color: #0000ff">do</span>
+<span style="color: #0000ff">    </span>echo <span style="color: #a31515">&quot;Text read from file: $line&quot;</span>
+<span style="color: #0000ff">done</span> &lt; my_filename.txt
+</pre></td></tr></table></div><br>
+            
+                <p  style="color:red"><b>◉ Increment (or decrement) a numeric:</b></p>
+                <!-- HTML generated using hilite.me -->
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #008000"># Increment a numeric</span>
+var=<span style="color: #0000ff">$((</span>var+1<span style="color: #0000ff">))</span>
+((var=var+1))
+((var+=1))
+((var++))
+let <span style="color: #a31515">&quot;var=var+1&quot;</span>
+let <span style="color: #a31515">&quot;var+=1&quot;</span>
+let <span style="color: #a31515">&quot;var++&quot;</span>
+</pre></td></tr></table></div><br>
+
+        <p  style="color:red"><b>◉ Array:</b></p>
+        <!-- HTML generated using hilite.me -->
+    <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #008000"># Create an array</span>
+myArray=(<span style="color: #a31515">&quot;A&quot;</span> <span style="color: #a31515">&quot;B&quot;</span> <span style="color: #a31515">&quot;C&quot;</span> <span style="color: #a31515">&quot;D&quot;</span>)
+var=0
+
+<span style="color: #008000"># Loop through array elements</span>
+<span style="color: #0000ff">for </span>element in <span style="color: #a31515">&quot;${myArray[@]}&quot;</span>
+<span style="color: #0000ff">do</span>
+    <span style="color: #008000"># Print each element</span>
+    echo <span style="color: #a31515">&quot;${myArray[var]}&quot;</span>
+    echo $element
+<span style="color: #0000ff">done</span>
+</pre></td></tr></table></div><br>
+            <p  style="color:red"><b>◉ Print something:</b></p>
+            <!-- HTML generated using hilite.me -->
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #008000"># Print literal \n</span>
+echo -e <span style="color: #a31515">&quot;Hello,\nWorld!&quot;</span>
+printf <span style="color: #a31515">&quot;Hello,\nWorld!&quot;</span>
+
+read -n 1 -s -r -p <span style="color: #a31515">&quot;Press any key to continue...&quot;</span>
+read -p <span style="color: #a31515">&quot;Press Enter to continue...&quot;</span>
+</pre></td></tr></table></div><br>
+        <p  style="color:red"><b>◉ "if" condition:</b></p>
+        <p> <b>Syntax:</b></p> </p>
+        <!-- HTML generated using hilite.me -->
+        <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #0000ff">if</span> [[ condition ]];
+<span style="color: #0000ff">then</span>
+    <span style="color: #008000"># Commands;</span>
+<span style="color: #0000ff">else if</span> [[ other condition ]];
+<span style="color: #0000ff">then</span>
+    <span style="color: #008000"># Commands;</span>
+<span style="color: #0000ff">else</span>
+    <span style="color: #008000"># Commands;</span>
+<span style="color: #0000ff">fi</span>
+</pre></td></tr></table></div> <br>
+<p style="text-align: center;"> <b>Compare Numbers:</b></p> </p>
+
+<div class=table>
+    <table class="tableFormat">
+        <tr>
+            <th>Syntax</th>
+            <th>Explanation </th>
+        </tr>
+        <tr>
+            <td class="col1">num1 -eq num2</td>
+            <td>check if 1st number is equal to 2nd number</td>
+        </tr>
+        <tr>
+            <td>num1 -ge num2</td>
+            <td>checks if 1st number is greater than or equal to 2nd number</td>
+        <tr>
+            <td>num1 -gt num2</td>
+            <td>checks if 1st number is greater than 2nd number</td>
+        </tr>  
+          <tr>
+              <td>num1 -le num2</td>
+              <td>checks if 1st number is less than or equal to 2nd number</td>
+          <tr>
+              <td>num1 -lt num2</td>
+              <td>checks if 1st number is less than 2nd number</td>
+          </tr>  
+          <tr>
+              <td>num1 -ne num2</td>
+              <td>checks if 1st number is not equal to 2nd number</td>
+          </tr>  
+      
+        
+      </table>
+</div><br>
+<p style="text-align: center;"> <b>Compare Strings:</b></p> </p>
+
+
+<div class=table>
+    <table class="tableFormat">
+        <tr>
+            <th>Syntax</th>
+            <th>Explanation </th>
+        </tr>
+        <tr>
+            <td class="col1">str1 = str2</td>
+            <td>checks if str1 is the same as string str2</td>
+        </tr>
+        <tr>
+            <td>str1 != str2</td>
+            <td>checks if str1 is not the same as str2</td>
+        <tr>
+            <td>str1 < str2</td>
+            <td>checks if str1 is less than str2</td>
+        </tr>  
+          <tr>
+              <td>str1 > str2</td>
+              <td>checks if str1 is greater than str2</td>
+          <tr>
+              <td>-n str1</td>
+              <td>checks if str1 has a length greater than zero</td>
+          </tr>  
+          <tr>
+              <td>-z str1</td>
+              <td>checks if str1 has a length of zero</td>
+          </tr>  
+      
+        
+      </table>
+</div>
+
     </section>
 
 </body>
