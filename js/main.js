@@ -239,7 +239,6 @@ function changeCSS(cssFile, cssLinkIndex) {
 
 	document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
 }
-
 // disable right click
 document.addEventListener('contextmenu', event => event.preventDefault());
  
