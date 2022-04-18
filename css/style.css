@@ -280,7 +280,7 @@ a:hover {
   position: absolute;
   height: 3px;
   background-color: #0078ff;
-  width: 100px;
+  width: 10rem;
   bottom: -12px;
 }
 
@@ -544,7 +544,7 @@ a:hover {
 
 .navbar-b.navbar-trans .nav-link:hover:before,
 .navbar-b.navbar-reduce .nav-link:hover:before {
-  width: 35px;
+  width: 3rem;
 }
 
 .navbar-b.navbar-trans .show > .nav-link:before,
@@ -555,7 +555,7 @@ a:hover {
 .navbar-b.navbar-reduce .active > .nav-link:before,
 .navbar-b.navbar-reduce .nav-link.show:before,
 .navbar-b.navbar-reduce .nav-link.active:before {
-  width: 35px;
+  width: 3rem;
 }
 
 .navbar-b.navbar-trans .nav-link:before {
