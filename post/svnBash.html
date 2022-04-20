@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/svnBash.css">
+    <link rel="icon" href="/img/icontitle.png" type="image/png" sizes="32x32">
+</head>
+<body>
+
+    <!-- Title header -->
+    <header class="header">
+
+        <div class="snowflakes" aria-hidden="true">
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❆
+            </div>
+            <div class="snowflake">
+            ❄
+            </div>
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❆
+            </div>
+            <div class="snowflake">
+            ❄
+            </div>
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❆
+            </div>
+            <div class="snowflake">
+            ❄
+            </div>
+          </div>
+          <div class="imageKiet">
+            <img src="/img/kiet.png" class="userImage">
+            <img src="/img/kiet2.jpg" class="userImage">
+          </div>
+
+      <div class="waviy">
+        <span style="--i:1">M</span>
+        <span style="--i:2">y</span>
+        <span style="--i:3"> </span>
+        <span style="--i:4"> </span>
+        <span style="--i:5">B</span>
+        <span style="--i:6">l</span>
+        <span style="--i:7">o</span>
+        <span style="--i:8">g</span>
+       </div>
+       <div class="flex">
+        <h2 class="header-sub-title" id="word"></h2>
+      </div>
+      
+        <h3 class="header__details" id="title">
+            Get work product using SVN and Shell Script.
+        </h3>
+    </header>
+    <script>{
+
+          document.title =  document.getElementById("title").innerHTML;
+        }
+    </script>
+    <script src="/js/myScript.js"></script> 
+    <section class="container">
+        <div class="content">
+            <p>
+                In this article, I'll demonstrate how to use SVN command and Shell Script to get link of work product I have made in a month. <br>
+                SVN stands for Subversion. So, SVN and Subversion are the same. SVN is used to manage and track changes to code and assets across projects.<br>
+                Monthly, I have to list all the paths of work products such as Word, Excel, .c, .h files...
+                For example, if I list manually all links as shown below, I will take a lot of time to find them.<br>
+            </p>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%">http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/H3/GPT/UT/R-CarH3_MCAL_GPT_UTReport.xlsx
+http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/H3/GPT/UT/Review_Minutes/R-CarH3_MCAL_GPT_UT_PeerReviewMinutes.xlsm
+http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/H3/MCU/IT/Review_Minutes/R-CarH3_MCAL_MCU_IT_PR_Checklist.xlsm
+http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/M3/GPT/Coverage/R-CarM3_MCAL_GPT_DriverCoverageReport.xlsm
+http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/M3/GPT/IT/Archive_folder/ConfigurationIT/EvalEnvelope_20210327.zip
+http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/M3/GPT/IT/Archive_folder/ConfigurationIT/EvalEnvelope_20210401.zip
+http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/M3/GPT/IT/Archive_folder/DriverIT/EvalEnvelope_20210409.zip
+http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/M3/GPT/IT/R-CarM3_MCAL_GPT_ConfigurationITReport.xlsx
+http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/M3/GPT/IT/R-CarM3_MCAL_GPT_DriverITReport.xlsx
+http://(hidden_name)/Maintenance/branches/Maintenance_branch/07_Test_Report/M3/GPT/IT/R-CarM3_MCAL_GPT_PerformanceITReport.xlsx
+</pre></td></tr></table></div>
+            <br>
+            <p>
+                In reality, the number of links can be two or three times higher. So, in order to save time, I created this tool to get all links quickly.
+            </p>
+            <h1> Demo:</h1>
+            <p>
+                ● Run command: <b>sh Deliverable.sh</b>.
+            </p>
+            <div class="img">
+                <img src="/img/svn_pic2.png" width="400" height="100" style="border: 1.1px solid black;" class="imgPost">
+            </div> <br>
+            <p>
+                ● We will wait for it to run and this script will generate the output file <b>res.txt</b>. The time the script runs depends on the network speed and the number of files that we do.<br>
+            </p>
+            <div class="img">
+                <img src="/img/svn_pic3.png" width="400" height="100" style="border: 1.1px solid black;" class="imgPost">
+            </div><br>
+            <p>
+                ● Then, we just copy the result and paste into the report.<br>
+            </p>
+            <div class="img">
+                <img src="/img/svn_pic4.png" width="850" height="600" style="border: 1.1px solid black;" class="imgPost">
+            </div><br>
+            <h1> Now we will reseach how this script work.</h1>
+            <p>
+                ● Due to I have to make the report monthly, I set the date is from <b>{2021-03-25}</b> to <b>{2021-04-25}</b> and user name is my name (<b>bv_kiettran</b>). <br>
+            </p>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5</pre></td><td><pre class="contentCode"  style="margin: 0; line-height: 125%"><span style="color: #008000">#Choose the date</span>
+chooseDate=<span style="color: #a31515">&#39;{2021-03-25}:{2021-04-25}&#39;</span>
+
+<span style="color: #008000">#Change your SVN name</span>
+yourName=<span style="color: #a31515">&quot;bv_kiettran&quot;</span>
+</pre></td></tr></table></div>
+            <br>
+            <p>
+                ● I use this command to see a log message of work product. This is a log message of a work product. It will display all information such as date, author, revision, path... <br>
+            </p>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%">svn log -v <span style="color: #a31515">&#39;hidden_repository&#39;</span> -r {2021-03-25}:{2021-04-25} | sed -n <span style="color: #a31515">&quot;/$bv_kiettran/,/-----$/ p&quot;</span></pre></td></tr></table></div>
+            <br>
+            <p>
+                ● This is a log message of a work product. It will display all information such as date, author, revision, path... 
+                but I only need the path <b>(red box as shown below)</b>, so I will use <b>"grep"</b>command and store these paths to a temporary file.<br>
+            </p>
+
+            <div class="img">
+                <img src="/img/svn_pic5.png" width="700" height="270" style="border: 1.1px solid black;" class="imgPost">
+            </div><br>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%">svn log -v <span style="color: #a31515">&#39;hidden_repository&#39;</span> -r {2021-03-25}:{2021-04-25} | sed -n <span style="color: #a31515">&quot;/$bv_kiettran/,/-----$/ p&quot;</span> | grep <span style="color: #a31515">&quot;M /\|A /&quot;</span> &gt; temp.txt</pre></td></tr></table></div>
+            <br>
+            <p>
+                ● Now, the temporary file contains the following: <br>
+            </p>
+
+            <div class="img">
+                <img src="/img/svn_pic6.png" width="900" height="260" style="border: 1.1px solid black;" class="imgPost">
+            </div><br>
+            <p>
+                ● Finally, I just replace <b>"M /"</b> and <b>"A /"</b> into your repository address bu using <b>"sed"</b> command. Then the result will be stored to another temporary file.<br>
+            </p>
+
+            <div class="img">
+                <img src="/img/svn_pic5.png" width="700" height="270" style="border: 1.1px solid black;" class="imgPost">
+            </div><br>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%">sed <span style="color: #a31515">&#39;s|   M |http://(hidden_repository)|g;s|   A |http://(hidden_repository)|g&#39;</span> temp.txt &gt; temp1.txt</pre></td></tr></table></div>
+            <br>
+
+            <h1> Here is full of script.</h1><br>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12</pre></td><td><pre  class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #008000">#Choose the date</span>
+chooseDate=<span style="color: #a31515">&#39;{2021-03-25}:{2021-04-25}&#39;</span>
+
+<span style="color: #008000">#Change your SVN name</span>
+yourName=<span style="color: #a31515">&quot;bv_kiettran&quot;</span>
+
+echo <span style="color: #a31515">&quot;Please wait...&quot;</span>
+svn log -v <span style="color: #a31515">&#39;hidden_repository&#39;</span> -r $chooseDate | sed -n <span style="color: #a31515">&quot;/$yourName/,/-----$/ p&quot;</span> | grep <span style="color: #a31515">&quot;M /\|A /&quot;</span> &gt; temp.txt
+sed <span style="color: #a31515">&#39;s|   M |hidden_repository|g;s|   A |hidden_repository|g&#39;</span> temp.txt &gt; temp1.txt
+sort -u temp1.txt &gt; res.txt
+echo <span style="color: #a31515">&quot;Done! Check result in file res.txt&quot;</span>
+rm -f temp.txt temp1.txt
+</pre></td></tr></table></div>
+               <br>
+            <h1> Thank you for taking the time to read!</h1>
+        </div>
+    </section>
+
+</body>
+</html>

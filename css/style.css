@@ -731,6 +731,7 @@ a:hover {
 .intro .intro-subtitle {
   font-size: 1.5rem;
   font-weight: 300;
+  color: rgb(253, 228, 2);
 }
 
 .intro .text-slider-items {

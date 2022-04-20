@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/jiraPython.css">
+    <link rel="icon" href="/img/icontitle.png" type="image/png" sizes="32x32">
+</head>
+<body>
+
+    <!-- Title header -->
+    <header class="header">
+
+        <div class="snowflakes" aria-hidden="true">
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❆
+            </div>
+            <div class="snowflake">
+            ❄
+            </div>
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❆
+            </div>
+            <div class="snowflake">
+            ❄
+            </div>
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❆
+            </div>
+            <div class="snowflake">
+            ❄
+            </div>
+          </div>
+          <div class="imageKiet">
+            <img src="/img/kiet.png" class="userImage">
+            <img src="/img/kiet2.jpg" class="userImage">
+          </div>
+
+      <div class="waviy">
+        <span style="--i:1">M</span>
+        <span style="--i:2">y</span>
+        <span style="--i:3"> </span>
+        <span style="--i:4"> </span>
+        <span style="--i:5">B</span>
+        <span style="--i:6">l</span>
+        <span style="--i:7">o</span>
+        <span style="--i:8">g</span>
+       </div>
+       <div class="flex">
+        <h2 class="header-sub-title" id="word"></h2>
+      </div>
+      
+        <h3 class="header__details" id="title">
+            Log work on Jira using Python and JIRA.
+        </h3>
+    </header>
+    <script>{
+
+        document.title =  document.getElementById("title").innerHTML;
+      }
+    </script>
+    <script src="/js/myScript.js"></script> 
+    <section class="container">
+        <div class="content">
+            <p>
+                In this articale, I will use Python and JIRA library to log time into a task. Jira is an application that used to tracking and management a project, issue, and bug, developed to make this process easier for any organization.
+                <br>
+                Normally, when I want to log time in a day, I have to navigate to <b>http://jira.(hidden-name).com.vn/</b>, find the task I have worked in that day, fill time and description what I have worked.<br>
+            </p>
+            <div class="img">
+                <img src="/img/jira_pic1.png" width="600" height="320" style="border: 1.1px solid black;" class="imgPost"> <br>
+                <img src="/img/jira_pic2.png" width="600" height="380" style="border: 1.1px solid black;" class="imgPost"> <br>
+            </div>
+            <p>
+                This will take time to do and I feel uncomfortable when doing so many steps. With this tool, it will listed all tasks that assigned to me. I just choose the task and log time.
+            </p>
+            <h1> Demo:</h1>
+            <p>
+                ● Run command: <b>python logworkJira.py</b>. With my account, currently I am handling 2 tasks.
+            </p>
+            <div class="img">
+                <img src="/img/jira_pic3.png" width="600" height="200" style="border: 1.1px solid black;" class="imgPost">
+            </div> <br>
+            <p>
+                ● The tool will ask me which task I want to choose to log work. For example, I choose the task <b>number 2</b>.<br>
+                ● Then, I will type the time I spent to do this task (<b>2h</b>) and my description (<b>test log</b>) and press <b>Enter</b>. The tool will ask me which date I want to choose to log work. 
+            </p>
+            <div class="img">
+                <img src="/img/jira_pic4.png" width="600" height="280" style="border: 1.1px solid black;" class="imgPost"> <br>
+            </div><br>
+            <p>
+                ● I want to log work today, I will choose <b>1</b> and type <b>Y</b>. Then data will be sent to website of Jira.<br>
+            </p>
+            <div class="img">
+                <img src="/img/jira_pic5.png" width="600" height="350" style="border: 1.1px solid black;" class="imgPost"> <br>
+            </div><br>
+
+            <p>
+                ● I have to navigate to website of Jira and check the time log is correct or not.<br>
+            </p>
+            <div class="img">
+                <img src="/img/jira_pic6.png" width="600" height="440" style="border: 1.1px solid black;" class="imgPost"> <br>
+            </div><br>
+
+            <p>
+                ● This took can log time in any date. If I want to log to other date, I will choose <b>2</b> and fill the date format accordingly. <br>
+            </p>
+            <div class="img">
+                <img src="/img/jira_pic7.png" width="600" height="240" style="border: 1.1px solid black;" class="imgPost"> <br>
+            </div><br>
+
+            <h1> Now we will reseach how this tool work.</h1>
+            <p>
+                ● Install JIRA library by using command: <b>pip install JIRA</b>. <br>
+            </p>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #0000ff">from</span> jira <span style="color: #0000ff">import</span> JIRA</pre></td></tr></table></div>
+            <br>
+            <p>
+                ● Then, we will edit the link of JIRA website, username and password. Line 4 is used to log in to JIRA website.  <br>
+            </p>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%">options = {<span style="color: #a31515">&quot;server&quot;</span>: <span style="color: #a31515">&quot;https://jira.(hidden_name).com.vn&quot;</span>}
+user = <span style="color: #a31515">&quot;kiet.tran-anh&quot;</span>  <span style="color: #008000">#your username log in JIRA</span>
+pw = <span style="color: #a31515">&quot;xxxxxxxx&quot;</span>  <span style="color: #008000">#your password log in JIRA</span>
+jira = JIRA(options, basic_auth=(user,pw))
+</pre></td></tr></table></div>
+            <br>
+
+            <p>
+                ● Next, I will search all tasks that assigned to me and status is not done, then display the information on console output.  <br>
+            </p>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%">issues = jira.search_issues(<span style="color: #a31515">&quot;assignee=currentUser() and status!=done&quot;</span>)
+<span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;\n&quot;</span>) 
+<span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;You have a total &quot;</span>+str(len(issues))+<span style="color: #a31515">&quot; tasks.&quot;</span>)
+<span style="color: #0000ff">for</span> i <span style="color: #0000ff">in</span> range(0, len(issues)): 
+    pos = i
+    <span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;Task &quot;</span>+str(pos+1)+<span style="color: #a31515">&quot;: &quot;</span>+ str(issues[i])+ <span style="color: #a31515">&quot;:&quot;</span>+str(issues[i].fields.summary))
+<span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;==================================================&quot;</span>)
+</pre></td></tr></table></div>
+
+            <br>
+
+            <p>
+                ● In this step, I will choose the task I want to log work. Then I will type the time, description and choose the date <br>
+            </p>
+
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%">value = input(<span style="color: #a31515">&quot;\nYou choose task number ? &quot;</span>)
+ID_JIRA = issues[int(value)-1]
+<span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;\n=== &quot;</span>+issues[int(value)-1].fields.summary+<span style="color: #a31515">&quot; ===\n&quot;</span>)
+time = input(<span style="color: #a31515">&quot;Spent time (5h, 30m...): &quot;</span>)
+com = input(<span style="color: #a31515">&quot;Comment: &quot;</span>)
+<span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;You want to log work on: &quot;</span>)
+<span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;    1. Today&quot;</span>)
+<span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;    2. Other date&quot;</span>)
+choice = input(<span style="color: #a31515">&quot;You choose 1 or 2 ? &quot;</span>)
+<span style="color: #0000ff">if</span> int(choice) == 2:
+    date = input(<span style="color: #a31515">&quot;Date (yyyy-mm-dd): &quot;</span>)
+    date += <span style="color: #a31515">&quot;T17:20:00.000+0700&quot;</span>
+<span style="color: #0000ff">else</span>:
+    date = None
+</pre></td></tr></table></div>
+            <br>
+
+            <p>
+                ● Finally, I will type <b>"Y"</b> to send data to JIRA website. If we type wrong time and comment, we will type <b>"N"</b> to do again. <br>
+            </p>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%">    <span style="color: #0000ff">if</span> yn == <span style="color: #a31515">&quot;Y&quot;</span>: 
+        jira.add_worklog(ID_JIRA, timeSpent=time, comment=com, started=date)
+        <span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;======================= Done =====================&quot;</span>)
+    <span style="color: #0000ff">elif</span> yn == <span style="color: #a31515">&quot;N&quot;</span>:
+        <span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;===================== Canceled ===================&quot;</span>)
+    <span style="color: #0000ff">else</span>:
+        <span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;===================== Try again ==================&quot;</span>)
+</pre></td></tr></table></div>
+            <br>
+
+            <h1> Here is full of source code.</h1><br>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #0000ff">from</span> jira <span style="color: #0000ff">import</span> JIRA
+
+options = {<span style="color: #a31515">&quot;server&quot;</span>: <span style="color: #a31515">&quot;https://jira.(hidden_name).com.vn&quot;</span>}
+user = <span style="color: #a31515">&quot;kiet.tran-anh&quot;</span>  <span style="color: #008000">#your username log in JIRA</span>
+pw = <span style="color: #a31515">&quot;xxxxxxxx&quot;</span>  <span style="color: #008000">#your password log in JIRA</span>
+jira = JIRA(options, basic_auth=(user,pw))
+
+issues = jira.search_issues(<span style="color: #a31515">&quot;assignee=currentUser() and status!=done&quot;</span>)
+<span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;\n&quot;</span>) 
+<span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;You have a total &quot;</span>+str(len(issues))+<span style="color: #a31515">&quot; tasks.&quot;</span>)
+<span style="color: #0000ff">for</span> i <span style="color: #0000ff">in</span> range(0, len(issues)): 
+    pos = i
+    <span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;Task &quot;</span>+str(pos+1)+<span style="color: #a31515">&quot;: &quot;</span>+ str(issues[i])+ <span style="color: #a31515">&quot;:&quot;</span>+str(issues[i].fields.summary))
+<span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;==================================================&quot;</span>)
+
+<span style="color: #0000ff">while</span> 1:
+    value = input(<span style="color: #a31515">&quot;\nYou choose task number ? &quot;</span>)
+    ID_JIRA = issues[int(value)-1]
+    <span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;\n=== &quot;</span>+issues[int(value)-1].fields.summary+<span style="color: #a31515">&quot; ===\n&quot;</span>)
+    time = input(<span style="color: #a31515">&quot;Spent time (5h, 30m...): &quot;</span>)
+    com = input(<span style="color: #a31515">&quot;Comment: &quot;</span>)
+    <span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;You want to log work on: &quot;</span>)
+    <span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;    1. Today&quot;</span>)
+    <span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;    2. Other date&quot;</span>)
+    choice = input(<span style="color: #a31515">&quot;You choose 1 or 2 ? &quot;</span>)
+    <span style="color: #0000ff">if</span> int(choice) == 2:
+        date = input(<span style="color: #a31515">&quot;Date (yyyy-mm-dd): &quot;</span>)
+        date += <span style="color: #a31515">&quot;T17:20:00.000+0700&quot;</span>
+    <span style="color: #0000ff">else</span>:
+        date = None
+    yn = input(<span style="color: #a31515">&quot;You will continue to log work? (Y/N)? &quot;</span>)   
+    <span style="color: #0000ff">if</span> yn == <span style="color: #a31515">&quot;Y&quot;</span>: 
+        jira.add_worklog(ID_JIRA, timeSpent=time, comment=com, started=date)
+        <span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;======================= Done =====================&quot;</span>)
+    <span style="color: #0000ff">elif</span> yn == <span style="color: #a31515">&quot;N&quot;</span>:
+        <span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;===================== Canceled ===================&quot;</span>)
+    <span style="color: #0000ff">else</span>:
+        <span style="color: #0000ff">print</span> (<span style="color: #a31515">&quot;===================== Try again ==================&quot;</span>)
+</pre></td></tr></table></div><br>
+               
+            <h1> Thank you for taking the time to read!</h1>
+    </section>
+
+</body>
+</html>

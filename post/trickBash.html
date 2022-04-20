@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/trickBash.css">
+    <link rel="icon" href="/img/icontitle.png" type="image/png" sizes="32x32">
+</head>
+<body>
+
+    <!-- Title header -->
+    <header class="header">
+
+        <div class="snowflakes" aria-hidden="true">
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❆
+            </div>
+            <div class="snowflake">
+            ❄
+            </div>
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❆
+            </div>
+            <div class="snowflake">
+            ❄
+            </div>
+            <div class="snowflake">
+            ❅
+            </div>
+            <div class="snowflake">
+            ❆
+            </div>
+            <div class="snowflake">
+            ❄
+            </div>
+          </div>
+          <div class="imageKiet">
+            <img src="/img/kiet.png" class="userImage">
+            <img src="/img/kiet2.jpg" class="userImage">
+          </div>
+
+      <div class="waviy">
+        <span style="--i:1">M</span>
+        <span style="--i:2">y</span>
+        <span style="--i:3"> </span>
+        <span style="--i:4"> </span>
+        <span style="--i:5">B</span>
+        <span style="--i:6">l</span>
+        <span style="--i:7">o</span>
+        <span style="--i:8">g</span>
+       </div>
+       <div class="flex">
+        <h2 class="header-sub-title" id="word"></h2>
+      </div>
+      
+        <h3 class="header__details" id="title">
+            Some notes when using Bash Script.
+        </h3>
+    </header>
+    <script>{
+
+        document.title =  document.getElementById("title").innerHTML;
+      }
+  </script>
+    <script src="/js/myScript.js"></script> 
+    <section class="container">
+        <div class="content">
+            <p> This article is designed to keep track of some of the most commonly used commands at work.<br>
+            <p  style="color:red"><b>◉ Arguments:</b></p>
+           <!-- HTML generated using hilite.me -->
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #008000"># Example: ./test.sh arg1 arg2 arg3</span>
+<span style="color: #008000"># Print number of arguments, return a number</span>
+<span style="color: #008000"># Output: 3</span>
+echo $#
+
+<span style="color: #008000"># Print 1st argument</span>
+<span style="color: #008000"># Output: arg1</span>
+echo $1
+
+<span style="color: #008000"># Print all arguments</span>
+<span style="color: #008000"># Output: arg1 arg2 arg3</span>
+echo $@
+</pre></td></tr></table></div><br>
+            <p  style="color:red"><b>◉ Input and file:</b></p>
+            <!-- HTML generated using hilite.me -->
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td><pre  class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #008000"># Read input</span>
+read -p <span style="color: #a31515">&quot;Enter input:&quot;</span> var
+echo $var
+
+<span style="color: #008000"># Read file</span>
+<span style="color: #0000ff">while </span>IFS= read -r line; <span style="color: #0000ff">do</span>
+<span style="color: #0000ff">    </span>echo <span style="color: #a31515">&quot;Text read from file: $line&quot;</span>
+<span style="color: #0000ff">done</span> &lt; my_filename.txt
+</pre></td></tr></table></div><br>
+            
+                <p  style="color:red"><b>◉ Increment (or decrement) a numeric:</b></p>
+                <!-- HTML generated using hilite.me -->
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #008000"># Increment a numeric</span>
+var=<span style="color: #0000ff">$((</span>var+1<span style="color: #0000ff">))</span>
+((var=var+1))
+((var+=1))
+((var++))
+let <span style="color: #a31515">&quot;var=var+1&quot;</span>
+let <span style="color: #a31515">&quot;var+=1&quot;</span>
+let <span style="color: #a31515">&quot;var++&quot;</span>
+</pre></td></tr></table></div><br>
+
+        <p  style="color:red"><b>◉ Array:</b></p>
+        <!-- HTML generated using hilite.me -->
+    <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #008000"># Create an array</span>
+myArray=(<span style="color: #a31515">&quot;A&quot;</span> <span style="color: #a31515">&quot;B&quot;</span> <span style="color: #a31515">&quot;C&quot;</span> <span style="color: #a31515">&quot;D&quot;</span>)
+var=0
+
+<span style="color: #008000"># Loop through array elements</span>
+<span style="color: #0000ff">for </span>element in <span style="color: #a31515">&quot;${myArray[@]}&quot;</span>
+<span style="color: #0000ff">do</span>
+    <span style="color: #008000"># Print each element</span>
+    echo <span style="color: #a31515">&quot;${myArray[var]}&quot;</span>
+    echo $element
+<span style="color: #0000ff">done</span>
+</pre></td></tr></table></div><br>
+            <p  style="color:red"><b>◉ Print something:</b></p>
+            <!-- HTML generated using hilite.me -->
+<div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #008000"># Print literal \n</span>
+echo -e <span style="color: #a31515">&quot;Hello,\nWorld!&quot;</span>
+printf <span style="color: #a31515">&quot;Hello,\nWorld!&quot;</span>
+
+read -n 1 -s -r -p <span style="color: #a31515">&quot;Press any key to continue...&quot;</span>
+read -p <span style="color: #a31515">&quot;Press Enter to continue...&quot;</span>
+</pre></td></tr></table></div><br>
+        <p  style="color:red"><b>◉ "if" condition:</b></p>
+        <p> <b>Syntax:</b></p> </p>
+        <!-- HTML generated using hilite.me -->
+        <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre class="LineNumbers" style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td><pre class="contentCode" style="margin: 0; line-height: 125%"><span style="color: #0000ff">if</span> [[ condition ]];
+<span style="color: #0000ff">then</span>
+    <span style="color: #008000"># Commands;</span>
+<span style="color: #0000ff">else if</span> [[ other condition ]];
+<span style="color: #0000ff">then</span>
+    <span style="color: #008000"># Commands;</span>
+<span style="color: #0000ff">else</span>
+    <span style="color: #008000"># Commands;</span>
+<span style="color: #0000ff">fi</span>
+</pre></td></tr></table></div> <br>
+<p style="text-align: center;"> <b>Compare Numbers:</b></p> </p>
+
+<div class=table>
+    <table class="tableFormat">
+        <tr>
+            <th>Syntax</th>
+            <th>Explanation </th>
+        </tr>
+        <tr>
+            <td class="col1">num1 -eq num2</td>
+            <td>check if 1st number is equal to 2nd number</td>
+        </tr>
+        <tr>
+            <td>num1 -ge num2</td>
+            <td>checks if 1st number is greater than or equal to 2nd number</td>
+        <tr>
+            <td>num1 -gt num2</td>
+            <td>checks if 1st number is greater than 2nd number</td>
+        </tr>  
+          <tr>
+              <td>num1 -le num2</td>
+              <td>checks if 1st number is less than or equal to 2nd number</td>
+          <tr>
+              <td>num1 -lt num2</td>
+              <td>checks if 1st number is less than 2nd number</td>
+          </tr>  
+          <tr>
+              <td>num1 -ne num2</td>
+              <td>checks if 1st number is not equal to 2nd number</td>
+          </tr>  
+      
+        
+      </table>
+</div><br>
+<p style="text-align: center;"> <b>Compare Strings:</b></p> </p>
+
+
+<div class=table>
+    <table class="tableFormat">
+        <tr>
+            <th>Syntax</th>
+            <th>Explanation </th>
+        </tr>
+        <tr>
+            <td class="col1">str1 = str2</td>
+            <td>checks if str1 is the same as string str2</td>
+        </tr>
+        <tr>
+            <td>str1 != str2</td>
+            <td>checks if str1 is not the same as str2</td>
+        <tr>
+            <td>str1 < str2</td>
+            <td>checks if str1 is less than str2</td>
+        </tr>  
+          <tr>
+              <td>str1 > str2</td>
+              <td>checks if str1 is greater than str2</td>
+          <tr>
+              <td>-n str1</td>
+              <td>checks if str1 has a length greater than zero</td>
+          </tr>  
+          <tr>
+              <td>-z str1</td>
+              <td>checks if str1 has a length of zero</td>
+          </tr>  
+      </table>
+</div>
+
+    </section>
+
+</body>
+</html>
