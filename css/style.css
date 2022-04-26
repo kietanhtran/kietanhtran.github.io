@@ -731,7 +731,7 @@ a:hover {
 .intro .intro-subtitle {
   font-size: 1.5rem;
   font-weight: 300;
-  color: rgb(253, 228, 2);
+  color: rgb(252, 244, 95);
 }
 
 .intro .text-slider-items {
@@ -1383,11 +1383,11 @@ footer .credits a {
 }
 
 .arrows path {
-	stroke: rgb(255, 255, 255);
+	stroke: rgb(72, 255, 0);
 	fill: transparent;
 	stroke-width: 2.5px;	
-	animation: arrow 2s infinite;
-	-webkit-animation: arrow 2s infinite; 
+	animation: arrow 1.2s infinite;
+	-webkit-animation: arrow 1.2s infinite; 
 }
 
 @keyframes arrow
@@ -1407,13 +1407,13 @@ footer .credits a {
 }
 
 .arrows path.a1 {
-	animation-delay:-1s;
-	-webkit-animation-delay:-1s; /* Safari 和 Chrome */
+	animation-delay:-0.6s;
+	-webkit-animation-delay:-0.6s; /* Safari 和 Chrome */
 }
 
 .arrows path.a2 {
-	animation-delay:-0.5s;
-	-webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+	animation-delay:-0.3s;
+	-webkit-animation-delay:-0.3s; /* Safari 和 Chrome */
 }
 
 .arrows path.a3 {	
