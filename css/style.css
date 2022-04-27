@@ -850,6 +850,7 @@ a:hover {
 
 .counter-ico {
   margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .counter-ico .ico-circle {
@@ -1284,7 +1285,7 @@ footer .credits a {
 
 @media (min-width: 577px) {
   .counter-box {
-    margin-bottom: 1.8rem;
+    margin-bottom: 1rem;
   }
 }
 
