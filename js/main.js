@@ -264,3 +264,104 @@ document.addEventListener('contextmenu', event => event.preventDefault());
             return false;
         }
     }
+
+
+// Skill tag
+var skills = [
+	{"header" : "Language and OS",
+		"captions" : [
+		"Window",
+		"Python",
+		"C/C++",
+		"Bash Script",
+		"Linux"
+		],
+		"values" : [
+		0.75,
+		0.6,
+		0.7,
+		0.6,
+		0.5
+		]
+	},
+  ];
+  
+  var pentagonIndex = 0;
+  var valueIndex = 0;
+  var width = 0;
+  var height = 0;
+  var radOffset = Math.PI/2;
+  var sides = 5; // Number of sides in the polygon
+  var theta = 2 * Math.PI/sides; // radians per section
+  
+  function getXY(i, radius) {
+	return {"x": Math.cos(radOffset +theta * i) * radius*width + width/2,
+	  "y": Math.sin(radOffset +theta * i) * radius*height + height/2};
+  }
+  
+  var hue = [];
+  var hueOffset = 25;
+  
+  for (var s in skills) {
+	$(".skill-set").append('<div class="pentagon"><canvas class="pentCanvas"/></div>');
+	hue[s] = (hueOffset + s * 255/skills.length) % 255;
+  }
+  
+  $(".pentagon").each(function(index){
+	width = $(this).width();
+	height = $(this).height();
+	var ctx = $(this).find('canvas')[0].getContext('2d');
+	ctx.canvas.width = width;
+	ctx.canvas.height = height;
+	ctx.font="20px Monospace";
+	ctx.textAlign="center";
+	
+	/*** LABEL ***/
+	color = "hsl("+hue[pentagonIndex]+", 100%, 50%)";
+	ctx.fillStyle = "hsl(90, 70%, 45%)";
+	ctx.fillText(skills[pentagonIndex].header, width/2, 15);
+  
+	ctx.font="15px Monospace";   
+  
+	/*** PENTAGON BACKGROUND ***/
+	for (var i = 0; i < sides; i++) {
+	  // For each side, draw two segments: the side, and the radius
+	  ctx.beginPath();
+	  xy = getXY(i, 0.3);
+	  ctx.fillStyle = "hsl(165, 70%, 35%)";
+	  ctx.strokeStyle = "hsl(165, 70%, 25%)";
+	  ctx.moveTo(0.5*width, 0.5*height); //center
+	  ctx.lineTo(xy.x, xy.y);
+	  xy = getXY(i+1, 0.3);
+	  ctx.lineTo(xy.x, xy.y);
+	  xy = getXY(i, 0.37);
+	  console.log();
+	  ctx.fillText(skills[ pentagonIndex].captions[valueIndex],xy.x, xy.y +5);
+	  valueIndex++;
+	  ctx.closePath();
+	  ctx.fill();
+	  ctx.stroke();
+	}
+	
+	valueIndex = 0;
+	ctx.beginPath();
+	ctx.fillStyle = "rgba(245, 71, 71, 0.6)";
+	ctx.lineWidth = 5;
+	var value = skills[pentagonIndex].values[valueIndex];
+	xy = getXY(i, value * 0.3);
+	ctx.moveTo(xy.x,xy.y);
+	/*** SKILL GRAPH ***/
+	for (var i = 0; i < sides; i++) {
+	  xy = getXY(i, value * 0.3);
+	  ctx.lineTo(xy.x,xy.y);
+	  valueIndex++;
+	  value = skills[pentagonIndex].values[valueIndex];
+	}
+	ctx.closePath();
+	ctx.stroke();
+	ctx.fill();
+	valueIndex = 0;  
+	pentagonIndex++;
+  });
+  
+  

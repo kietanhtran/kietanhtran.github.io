@@ -280,7 +280,7 @@ a:hover {
   position: absolute;
   height: 3px;
   background-color: #0078ff;
-  width: 10rem;
+  width: 100px;
   bottom: -12px;
 }
 
@@ -544,7 +544,7 @@ a:hover {
 
 .navbar-b.navbar-trans .nav-link:hover:before,
 .navbar-b.navbar-reduce .nav-link:hover:before {
-  width: 3rem;
+  width: 35px;
 }
 
 .navbar-b.navbar-trans .show > .nav-link:before,
@@ -555,7 +555,7 @@ a:hover {
 .navbar-b.navbar-reduce .active > .nav-link:before,
 .navbar-b.navbar-reduce .nav-link.show:before,
 .navbar-b.navbar-reduce .nav-link.active:before {
-  width: 3rem;
+  width: 35px;
 }
 
 .navbar-b.navbar-trans .nav-link:before {
@@ -1419,4 +1419,84 @@ footer .credits a {
 .arrows path.a3 {	
 	animation-delay:0s;
 	-webkit-animation-delay:0s; /* Safari 和 Chrome */
+}
+
+/* Skill tag */
+.box{
+  padding: 15px;
+  background-color: rgb(248, 248, 219);
+  border-style: solid;
+  border-color: rgb(76, 166, 76);
+  border-radius: 10px;
+  font-family: "Poppins",sans-serif;
+  font-weight: 500;
+} 
+h2{
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  text-align: center;
+  font-size: 33px;
+  font-weight: bold;
+}
+.details{
+  width: 100%;
+  display: flex;  
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.bar{
+  position: relative;
+  border: 2px solid #0d96e0;
+  border-radius: 20px;
+
+}
+.bar div{
+  position: relative;
+  width: 0;
+  height: 9px;
+  border-radius: 10px;
+  background-color: #0d96e0;
+}
+.skills:not(:last-child){
+  margin-bottom: 30px;
+}
+#management-bar{
+  animation: management-fill 2s forwards;
+}
+@keyframes management-fill{
+  100%{
+      width: 75%;
+  }
+}
+#estimation-bar{
+  animation: estimation-fill 2s forwards;
+}
+@keyframes estimation-fill{
+  100%{
+      width: 75%;
+  }
+}
+#research-bar{
+  animation: research-fill 2s forwards;
+}
+@keyframes research-fill {
+  100%{
+      width: 80%;
+  }
+}
+
+.skill-set {
+  margin: auto;
+  text-align: center;
+}
+
+#c {
+  margin: auto;
+}
+
+.pentagon {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  display:inline-block;
 }
