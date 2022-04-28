@@ -1380,11 +1380,11 @@ footer .credits a {
 	width: 40px;
 	height: 68px;
   position: absolute;
-  bottom: 50px;
+  bottom: 70px;
 }
 
 .arrows path {
-	stroke: rgb(72, 255, 0);
+	stroke: rgb(252, 244, 95);
 	fill: transparent;
 	stroke-width: 2.5px;	
 	animation: arrow 1.2s infinite;
@@ -1461,25 +1461,25 @@ h2{
 .skills:not(:last-child){
   margin-bottom: 30px;
 }
-#management-bar{
-  animation: management-fill 2s forwards;
-}
+/* #management-bar{
+  animation: management-fill 2s reverse;
+} */
 @keyframes management-fill{
   100%{
       width: 75%;
   }
 }
-#estimation-bar{
+/* #estimation-bar{
   animation: estimation-fill 2s forwards;
-}
+} */
 @keyframes estimation-fill{
   100%{
       width: 75%;
   }
 }
-#research-bar{
+/* #research-bar{
   animation: research-fill 2s forwards;
-}
+} */
 @keyframes research-fill {
   100%{
       width: 80%;
@@ -1500,4 +1500,8 @@ h2{
   height: 300px;
   margin: auto;
   display:inline-block;
+}
+
+.description p{
+  margin-bottom: 0.3rem;
 }

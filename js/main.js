@@ -1,3 +1,45 @@
+// Scroll to SKill
+// $(window).scroll(function() {
+// 	var hT = $('#skill').offset().top,
+// 		hH = $('#skill').outerHeight(),
+// 		wH = $(window).height(),
+// 		wS = $(this).scrollTop();
+// 	var flag;
+// 	// if (wS > (hT+hH-wH)){
+// 	if (wS > (hT+hH-wH) && (hT > wS) && (wS+wH > hT+hH)){
+// 		flag = true;
+// 	}
+// 	if (flag){
+// 		document.getElementById('management-bar').style.animation = "management-fill 2.5s forwards";
+// 		document.getElementById('estimation-bar').style.animation = "estimation-fill 2.5s forwards";
+// 		document.getElementById('research-bar').style.animation = "research-fill 2.5s forwards";
+// 	}
+
+//  });
+
+$(window).scroll(function(){
+	var myElement = document.getElementById('skill');
+	var bounding = myElement.getBoundingClientRect();
+	var myElementHeight = myElement.offsetHeight;
+	var myElementWidth = myElement.offsetWidth;
+
+	if (bounding.top >= -myElementHeight 
+		&& bounding.left >= -myElementWidth
+		&& bounding.right <= (window.innerWidth || document.documentElement.clientWidth) + myElementWidth
+		&& bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) + myElementHeight) {
+			document.getElementById('management-bar').style.animation = "management-fill 2.5s forwards";
+			document.getElementById('estimation-bar').style.animation = "estimation-fill 2.5s forwards";
+			document.getElementById('research-bar').style.animation = "research-fill 2.5s forwards";
+	} 
+	else {
+
+		document.getElementById('management-bar').style.animation = "none";
+		document.getElementById('estimation-bar').style.animation = "none";
+		document.getElementById('research-bar').style.animation = "none";
+	}
+});
+
+
 (function ($) {
 	"use strict";
 	var nav = $('nav');
@@ -142,11 +184,11 @@
 	});
 
 	/*--/ Star ScrollTop /--*/
-	$('.scrolltop-mf').on("click", function () {
-		$('html, body').animate({
-			scrollTop: 0
-		}, 1000);
-	});
+	// $('.scrolltop-mf').on("click", function () {
+	// 	$('html, body').animate({
+	// 		scrollTop: 0
+	// 	}, 1000);
+	// });
 
 	/*--/ Star Counter /--*/
 	$('.counter').counterUp({
@@ -226,19 +268,7 @@
 
 })(jQuery);
 
-
 	
-function changeCSS(cssFile, cssLinkIndex) {
-
-	var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
-
-	var newlink = document.createElement("link");
-	newlink.setAttribute("rel", "stylesheet");
-	newlink.setAttribute("type", "text/css");
-	newlink.setAttribute("href", cssFile);
-
-	document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
-}
 // disable right click
 document.addEventListener('contextmenu', event => event.preventDefault());
  
