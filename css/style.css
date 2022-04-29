@@ -777,14 +777,6 @@ a:hover {
   padding-bottom: 4rem;
 }
 
-.about-mf .about-img {
-  margin-bottom: 2rem;
-}
-
-.about-mf .about-img img {
-  margin-left: 10px;
-}
-
 .skill-mf span {
   color: #4e4e4e;
 }
@@ -866,7 +858,7 @@ a:hover {
 }
 
 .counter-num .counter1 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-bottom: 0;
 }
 
@@ -1379,8 +1371,9 @@ footer .credits a {
 .arrows {
 	width: 40px;
 	height: 68px;
-  position: absolute;
   bottom: 70px;
+  position: relative;
+  top: 130px;
 }
 
 .arrows path {
@@ -1423,15 +1416,43 @@ footer .credits a {
 }
 
 /* Skill tag */
-.box{
+.border-box {
   padding: 15px;
   background-color: rgb(248, 248, 219);
-  border-style: solid;
-  border-color: rgb(76, 166, 76);
-  border-radius: 10px;
+  --borderWidth: 3px;
+  border-radius: var(--borderWidth);
   font-family: "Poppins",sans-serif;
   font-weight: 500;
+  position: relative;
 } 
+
+.border-box:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 h2{
   margin-bottom: 10px;
   letter-spacing: 2px;
