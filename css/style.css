@@ -1371,9 +1371,6 @@ footer .credits a {
 .arrows {
 	width: 40px;
 	height: 68px;
-  bottom: 70px;
-  position: relative;
-  top: 130px;
 }
 
 .arrows path {
